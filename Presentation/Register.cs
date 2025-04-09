@@ -20,11 +20,11 @@ namespace Presentation
 
         private void reset_Text()
         {
-            txtCed.Clear();
-            txtCon.Clear();
-            txtNom.Clear();
-            cmbNationality.SelectedIndex = 1;
-            dtpNac.ResetText();
+            //txtCed.Clear();
+            //txtCon.Clear();
+            //txtNom.Clear();
+            //cmbNationality.SelectedIndex = 1;
+            //dtpNac.ResetText();
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -65,36 +65,10 @@ namespace Presentation
             this.Close();
         }
 
-        private void pb_Imag_Click(object sender, EventArgs e)
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Seleccionar imagen";
-                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // leer la imagen seleccionada
-                        string filePath = openFileDialog.FileName;
-                        pb_Imag.Image = Image.FromFile(filePath);
-
-                        // Convertir imagen a byte[]
-                        byte[] imageBytes;
-                        using (MemoryStream ms = new MemoryStream())
-                        {
-                            imageBytes = ms.ToArray();
-                            pb_Imag.Image.Save(ms, pb_Imag.Image.RawFormat);
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al cargar la imagen: " + ex.Message);
-                    }
-                }
-            }
         }
     }
 }
