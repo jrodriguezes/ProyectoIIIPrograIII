@@ -63,6 +63,36 @@ namespace Presentation.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checklist__1_ {
+            get {
+                object obj = ResourceManager.GetObject("checklist__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checklist__2_ {
+            get {
+                object obj = ResourceManager.GetObject("checklist__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hombredefault {
+            get {
+                object obj = ResourceManager.GetObject("hombredefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_ {
             get {
                 object obj = ResourceManager.GetObject("icon_", resourceCulture);
@@ -76,6 +106,16 @@ namespace Presentation.Properties {
         internal static System.Drawing.Bitmap principall {
             get {
                 object obj = ResourceManager.GetObject("principall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rectangulo_xmark {
+            get {
+                object obj = ResourceManager.GetObject("rectangulo_xmark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
