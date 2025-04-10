@@ -57,7 +57,7 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtCed = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -327,7 +327,7 @@
             this.panel3.Controls.Add(this.btnLogIn);
             this.panel3.Controls.Add(this.pictureBox11);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txtEmail);
+            this.panel3.Controls.Add(this.txtCed);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -412,19 +412,19 @@
             this.pictureBox11.TabIndex = 63;
             this.pictureBox11.TabStop = false;
             // 
-            // txtEmail
+            // txtCed
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.DimGray;
-            this.txtEmail.Location = new System.Drawing.Point(85, 133);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(290, 20);
-            this.txtEmail.TabIndex = 3;
-            this.txtEmail.Text = "CORREO ELECTRONICO";
-            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
+            this.txtCed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.txtCed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCed.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCed.ForeColor = System.Drawing.Color.DimGray;
+            this.txtCed.Location = new System.Drawing.Point(85, 133);
+            this.txtCed.Name = "txtCed";
+            this.txtCed.Size = new System.Drawing.Size(290, 20);
+            this.txtCed.TabIndex = 3;
+            this.txtCed.Text = "CORREO ELECTRONICO";
+            this.txtCed.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtCed.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // LogIn
             // 
@@ -496,7 +496,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtCed;
     }
 }
 

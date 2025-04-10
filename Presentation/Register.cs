@@ -30,7 +30,7 @@ namespace Presentation
             txtPassword.Text = "CONTRASEÑA";
             txtPassword.ForeColor = Color.DimGray;
 
-            cmbGenre.SelectedIndex = -1;
+            cmbGenre.SelectedIndex = 0;
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -51,12 +51,14 @@ namespace Presentation
 
             UserModel newUser = new UserModel
             {
+                id = Convert.ToInt32(txtId.Text),
                 name = txtName.Text,
                 email = txtEmail.Text,
                 genre = cmbGenre.SelectedItem.ToString(),
                 birthday = dtpBirthday.Value,
                 age = calculateAge(dtpBirthday.Value),
-                password = securityUtils.encryptMD5(txtPassword.Text)
+                password = securityUtils.encryptMD5(txtPassword.Text),
+                role = "Usuario"
             };
 
             string endpoint = "https://faceapi-utn2025.cognitiveservices.azure.com/";

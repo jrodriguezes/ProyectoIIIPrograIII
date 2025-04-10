@@ -35,30 +35,30 @@ namespace Presentation
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            if (securityUtils.creedentials(txtEmail, txtPassword))
+            if (securityUtils.creedentials(txtCed, txtPassword))
             {
-                //id = Convert.ToInt32(txtEmail.Text);
-                email = Convert.ToString(txtEmail.Text);
-                Principal principalForm = new Principal(email);
+                id = Convert.ToInt32(txtCed.Text);
+                //email = Convert.ToString(txtCed.Text);
+                Principal principalForm = new Principal(id);
                 principalForm.ShowDialog();
             } 
         }
 
         private void txtEmail_Enter(object sender, EventArgs e)
         {
-            if (txtEmail.Text == "CORREO ELECTRONICO")
+            if (txtCed.Text == "CORREO ELECTRONICO")
             {
-                txtEmail.Text = "";
-                txtEmail.ForeColor = Color.LightGray;
+                txtCed.Text = "";
+                txtCed.ForeColor = Color.LightGray;
             }
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            if (txtEmail.Text == "")
+            if (txtCed.Text == "")
             {
-                txtEmail.Text = "CORREO ELECTRONICO";
-                txtEmail.ForeColor = Color.DimGray;
+                txtCed.Text = "CORREO ELECTRONICO";
+                txtCed.ForeColor = Color.DimGray;
             }
         }
 

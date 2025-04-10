@@ -18,13 +18,13 @@ namespace Logic
             crud.insertUser(user);
         }
         // Queries
-        public int getUserId(string Email)
+        public int getUserIdByEmail(string Email)
         {
             return crud.getUserId(Email);
         }
-        public string getPasswordByEmail(string Email)
+        public string getPasswordById(int id)
         {
-            return crud.getPasswordbyEmail(Email);
+            return crud.getPasswordbyId(id);
         }
     }
 }

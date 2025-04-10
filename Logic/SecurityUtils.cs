@@ -30,16 +30,17 @@ namespace Logic
             }
         }
 
-        public bool creedentials(TextBox email, TextBox password)
+        public bool creedentials(TextBox txtId, TextBox password)
         {
             bool isValid = false;
             int id = 0;
-            string gmail = "";
+            //string gmail = "";
 
-            id = userService.getUserId(email.Text);
+            //id = userService.getUserId(txtId.Text);
+            id = Convert.ToInt32(txtId.Text);
           
             string encryptedPassword = encryptMD5(Convert.ToString(password.Text));
-            string storedPassword = userService.getPasswordByEmail(email.Text);
+            string storedPassword = userService.getPasswordById(id);
 
             if (encryptedPassword == storedPassword)
             {

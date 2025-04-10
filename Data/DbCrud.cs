@@ -16,9 +16,9 @@ namespace Data
            DbConnection connection = new DbConnection();
            NpgsqlConnection actualConnection = connection.dbConnection();
 
-            string insertUserQuery = "INSERT INTO Users (Name, Email, Genre, Birthday, Age, Password, FaceId) " +
-                                         "VALUES ('" + user.name + "', '" + user.email + "', '" + user.genre + "', '" +
-                                         user.birthday.ToString("yyyy-MM-dd") + "', " + user.age + ", '" + user.password + "', '" + user.faceId + "');";
+            string insertUserQuery = "INSERT INTO Users (Id, Name, Email, Genre, Birthday, Age, Password, FaceId, Role, Status) " +
+                                         "VALUES (" + user.id + ", '"+ user.name + "', '" + user.email + "', '" + user.genre + "', '" +
+                                         user.birthday.ToString("yyyy-MM-dd") + "', " + user.age + ", '" + user.password + "', '" + user.faceId + "', '" + user.role + "', " + 1 + ");"; // Role default 1(activo)
 
             NpgsqlCommand cmd = new NpgsqlCommand(insertUserQuery, actualConnection);
             cmd.ExecuteNonQuery();
@@ -26,14 +26,14 @@ namespace Data
 
         // Queries 
 
-        public string getPasswordbyEmail(string Email)
+        public string getPasswordbyId(int id)
         {
             string password = "";
 
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            NpgsqlCommand cmd = new NpgsqlCommand("Select password from Users where email=" + "'" + Email + "'", actualConnection);
+            NpgsqlCommand cmd = new NpgsqlCommand("Select password from Users where id=" + "'" + id + "'", actualConnection);
 
             NpgsqlDataReader dr = cmd.ExecuteReader();
 

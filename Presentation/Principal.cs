@@ -13,7 +13,7 @@ namespace Presentation
 {
     public partial class Principal : Form
     {
-        public Principal(string email)
+        public Principal(int id)
         {
             InitializeComponent();
             customizingDesign();
