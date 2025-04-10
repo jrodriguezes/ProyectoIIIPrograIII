@@ -9,10 +9,10 @@ using Data;
 
 namespace Logic
 {
-    public class validatePassword
+    public class SecurityUtils
     {
 
-        //bdQueries queries = new bdQueries();
+        UserService userService = new UserService();
         public string encryptMD5(string input)
         {
             using (MD5 md5 = MD5.Create()) // MD5.Create() Crea un objeto que permite usar el algoritmo de encriptacion MD5
@@ -30,33 +30,27 @@ namespace Logic
             }
         }
 
-        //public bool creedentials(TextBox user, TextBox password)
-        //{
-        //    bool isValid = false;
-        //    int id = 0;
+        public bool creedentials(TextBox email, TextBox password)
+        {
+            bool isValid = false;
+            int id = 0;
+            string gmail = "";
 
-        //    if (int.TryParse(user.Text, out int userId))
-        //    {
-        //        id = queries.getUserId(userId);
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Ingrese en su cedula solo numeros!");
-        //    }
+            id = userService.getUserId(email.Text);
+          
+            string encryptedPassword = encryptMD5(Convert.ToString(password.Text));
+            string storedPassword = userService.getPasswordByEmail(email.Text);
 
-        //    string encryptedPassword = encryptMD5(Convert.ToString(password.Text));
-        //    string storedPassword = queries.getPasswordbyId(id);
-
-        //    if (encryptedPassword == storedPassword)
-        //    {
-        //        isValid = true;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Contraseña incorrecta o usuario inhabilitado o no existente.");
-        //    }
-        //    return isValid;
-        //}
+            if (encryptedPassword == storedPassword)
+            {
+                isValid = true;
+            }
+            else
+            {
+                MessageBox.Show("Contraseña incorrecta o usuario inhabilitado o no existente.");
+            }
+            return isValid;
+        }
     }
 }
 

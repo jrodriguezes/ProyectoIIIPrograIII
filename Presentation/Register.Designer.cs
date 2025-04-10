@@ -48,13 +48,13 @@
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtCed = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnLogIn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pbFaceID = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -73,7 +73,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -129,23 +129,22 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.panel2.Controls.Add(this.pictureBox10);
             this.panel2.Controls.Add(this.pictureBox9);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.pictureBox5);
-            this.panel2.Controls.Add(this.btnLogIn);
+            this.panel2.Controls.Add(this.pbFaceID);
+            this.panel2.Controls.Add(this.btnRegister);
             this.panel2.Controls.Add(this.cmbGenre);
             this.panel2.Controls.Add(this.dtpBirthday);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox7);
             this.panel2.Controls.Add(this.txtName);
             this.panel2.Controls.Add(this.pictureBox8);
-            this.panel2.Controls.Add(this.txtCed);
+            this.panel2.Controls.Add(this.txtEmail);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(440, 482);
             this.panel2.TabIndex = 32;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel7
             // 
@@ -164,7 +163,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe Fluent Icons", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(33, 0);
+            this.label9.Location = new System.Drawing.Point(33, 3);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.label9.Size = new System.Drawing.Size(186, 19);
@@ -212,7 +211,7 @@
             this.label10.Font = new System.Drawing.Font("Segoe Fluent Icons", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Location = new System.Drawing.Point(33, 0);
+            this.label10.Location = new System.Drawing.Point(33, 3);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.label10.Size = new System.Drawing.Size(192, 19);
@@ -328,18 +327,22 @@
             this.txtName.Size = new System.Drawing.Size(290, 20);
             this.txtName.TabIndex = 51;
             this.txtName.Text = "NOMBRE";
+            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
-            // txtCed
+            // txtEmail
             // 
-            this.txtCed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.txtCed.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCed.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCed.ForeColor = System.Drawing.Color.DimGray;
-            this.txtCed.Location = new System.Drawing.Point(67, 90);
-            this.txtCed.Name = "txtCed";
-            this.txtCed.Size = new System.Drawing.Size(290, 20);
-            this.txtCed.TabIndex = 49;
-            this.txtCed.Text = "CORREO ELECTRONICO";
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.DimGray;
+            this.txtEmail.Location = new System.Drawing.Point(67, 90);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(290, 20);
+            this.txtEmail.TabIndex = 49;
+            this.txtEmail.Text = "CORREO ELECTRONICO";
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label12
             // 
@@ -351,31 +354,34 @@
             this.label12.TabIndex = 58;
             this.label12.Text = "Face-ID(Opcional)";
             // 
-            // btnLogIn
+            // btnRegister
             // 
-            this.btnLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnLogIn.FlatAppearance.BorderSize = 0;
-            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogIn.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.btnLogIn.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLogIn.Location = new System.Drawing.Point(67, 359);
-            this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(290, 29);
-            this.btnLogIn.TabIndex = 56;
-            this.btnLogIn.Text = "REGISTRARSE";
-            this.btnLogIn.UseVisualStyleBackColor = false;
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.btnRegister.ForeColor = System.Drawing.Color.DimGray;
+            this.btnRegister.Location = new System.Drawing.Point(67, 359);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(290, 29);
+            this.btnRegister.TabIndex = 56;
+            this.btnRegister.Text = "REGISTRARSE";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox2.Location = new System.Drawing.Point(67, 250);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(290, 20);
-            this.textBox2.TabIndex = 59;
-            this.textBox2.Text = "CONTRASEÑA";
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPassword.Location = new System.Drawing.Point(67, 250);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(290, 20);
+            this.txtPassword.TabIndex = 59;
+            this.txtPassword.Text = "CONTRASEÑA";
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // pictureBox10
             // 
@@ -395,15 +401,16 @@
             this.pictureBox9.TabIndex = 60;
             this.pictureBox9.TabStop = false;
             // 
-            // pictureBox5
+            // pbFaceID
             // 
-            this.pictureBox5.Image = global::Presentation.Properties.Resources.face_id;
-            this.pictureBox5.Location = new System.Drawing.Point(184, 308);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(54, 41);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 57;
-            this.pictureBox5.TabStop = false;
+            this.pbFaceID.Image = global::Presentation.Properties.Resources.face_id;
+            this.pbFaceID.Location = new System.Drawing.Point(184, 308);
+            this.pbFaceID.Name = "pbFaceID";
+            this.pbFaceID.Size = new System.Drawing.Size(54, 41);
+            this.pbFaceID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFaceID.TabIndex = 57;
+            this.pbFaceID.TabStop = false;
+            this.pbFaceID.Click += new System.EventHandler(this.pbFaceID_Click);
             // 
             // pictureBox6
             // 
@@ -522,7 +529,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -563,12 +570,12 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.TextBox txtCed;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button btnLogIn;
+        private System.Windows.Forms.PictureBox pbFaceID;
+        private System.Windows.Forms.Button btnRegister;
     }
 }

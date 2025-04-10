@@ -7,7 +7,7 @@ using Npgsql;
 
 namespace Data
 {
-    public class connection
+    public class DbConnection
     {
         public NpgsqlConnection connections;
         public NpgsqlConnection dbConnection()
@@ -16,7 +16,7 @@ namespace Data
             int port = 5432;
             string user = "postgres";
             int password = 123;
-            string database = "Lab03_DB";
+            string database = "ProyectoIIIPrograIIIDB";
 
             string cadenaConexion = "Server=" + server + ";" + "Port=" + port + ";" + "User Id=" + user + ";" + "Password=" + password + ";" + "Database=" + database;
             connections = new NpgsqlConnection(cadenaConexion);
