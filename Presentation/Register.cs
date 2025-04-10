@@ -3,6 +3,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Logic;
+using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Objects;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 
@@ -45,7 +47,7 @@ namespace Presentation
         private async void btnRegister_Click(object sender, EventArgs e)
         {
             UserService userService = new UserService();
-            string imagePath = @"C:\ruta\imagen.jpg"; // ruta o captura previa
+            string imagePath = @"C:\Users\jerem\Downloads\frontal.jpg";            // ruta o captura previa
 
             UserModel newUser = new UserModel
             {
@@ -58,12 +60,24 @@ namespace Presentation
             };
 
             string endpoint = "https://faceapi-utn2025.cognitiveservices.azure.com/";
-            string key = "2CRnWntv6cQ1b3QlV011nSreZmt6S6hZNxRoyW7hLksrwamVFT4HJQQJ99BDACYeBjFXJ3w3AAAKACOGVv4N";
+            string key = "2hOrQAs5oiB1o6XKDSl5pVkhlHvZ15TUciHoeg3bGxglNgSdeqyAJQQJ99BDACYeBjFXJ3w3AAAKACOGb7yu";
 
-            FaceIdService faceIdService = new FaceIdService(endpoint, key);
-            await faceIdService.RegisterUserAsync(newUser, imagePath);
+            var faceClient = new FaceClient(new ApiKeyServiceClientCredentials(key))
+            {
+                Endpoint = endpoint
+            };
 
-            MessageBox.Show("Usuario registrado con Face ID");
+            try
+            {
+                var groups = await faceClient.PersonGroup.ListAsync();
+                MessageBox.Show($"✅ Conexión correcta. Total de grupos encontrados: {groups.Count}");
+                MessageBox.Show("Usuario registrado con Face ID");
+            }
+            catch (APIErrorException ex)
+            {
+                MessageBox.Show($"❌ ERROR Face API: {ex.Response.StatusCode} - {ex.Message}");
+            }
+
             //Ya se guarda en BD dentro de FaceIdServic
             userService.InsertUser(newUser);
             MessageBox.Show("Te has registrado satisfactoriamente!");
@@ -133,7 +147,7 @@ namespace Presentation
             }
         }
 
-        private void txtPassword_Leave(object sender, EventArgs e)
+        private async void txtPassword_Leave(object sender, EventArgs e)
         {
             if (txtPassword.Text == "")
             {
@@ -141,6 +155,28 @@ namespace Presentation
                 txtPassword.ForeColor = Color.DimGray;
             }
         }
+
+        private async void btnTestFaceApi_Click(object sender, EventArgs e)
+        {
+            string endpoint = "https://faceapi-utn2025.cognitiveservices.azure.com/";
+            string key = "2hOrQAs5oiB1o6XKDSl5pVkhlHvZ15TUciHoeg3bGxglNgSdeqyAJQQJ99BDACYeBjFXJ3w3AAAKACOGb7yu";
+
+            var faceClient = new FaceClient(new ApiKeyServiceClientCredentials(key))
+            {
+                Endpoint = endpoint
+            };
+
+            try
+            {
+                var groups = await faceClient.PersonGroup.ListAsync();
+                MessageBox.Show($"✅ Conexión correcta. Total de grupos: {groups.Count}");
+            }
+            catch (APIErrorException ex)
+            {
+                MessageBox.Show($"❌ ERROR: {ex.Response.StatusCode} - {ex.Message}");
+            }
+        }
+
     }
 }
 

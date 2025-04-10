@@ -17,8 +17,8 @@ namespace Data
            NpgsqlConnection actualConnection = connection.dbConnection();
 
             string insertUserQuery = "INSERT INTO Users (Name, Email, Genre, Birthday, Age, Password, FaceId) " +
-                         "VALUES ('" + user.name + "', '" + user.email + "', '" + user.birthday.ToString("yyyy-MM-dd") + "', " +
-                         user.age + ", '" + user.password + "', " + user.faceId + "');";
+                                         "VALUES ('" + user.name + "', '" + user.email + "', '" + user.genre + "', '" +
+                                         user.birthday.ToString("yyyy-MM-dd") + "', " + user.age + ", '" + user.password + "', '" + user.faceId + "');";
 
             NpgsqlCommand cmd = new NpgsqlCommand(insertUserQuery, actualConnection);
             cmd.ExecuteNonQuery();
