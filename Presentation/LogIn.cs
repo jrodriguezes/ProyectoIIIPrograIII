@@ -4,6 +4,8 @@ using Logic;
 using System.Xml;
 using System.Collections.Generic;
 using static System.Net.Mime.MediaTypeNames;
+using System.Drawing;
+using System.Xml.Linq;
 
 namespace Presentation
 {
@@ -39,6 +41,42 @@ namespace Presentation
                 email = Convert.ToString(txtEmail.Text);
                 Principal principalForm = new Principal(email);
                 principalForm.ShowDialog();
+            } 
+        }
+
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "CORREO ELECTRONICO")
+            {
+                txtEmail.Text = "";
+                txtEmail.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "")
+            {
+                txtEmail.Text = "CORREO ELECTRONICO";
+                txtEmail.ForeColor = Color.DimGray;
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "CONTRASEÑA")
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "")
+            {
+                txtPassword.Text = "CONTRASEÑA";
+                txtPassword.ForeColor = Color.DimGray;
             }
         }
     }

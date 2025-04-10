@@ -98,7 +98,7 @@
             this.label3.Location = new System.Drawing.Point(156, 332);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 19);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 2;
             this.label3.Text = "No tiene una cuenta?";
             // 
             // panel1
@@ -146,7 +146,7 @@
             this.label9.Font = new System.Drawing.Font("Segoe Fluent Icons", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(33, 0);
+            this.label9.Location = new System.Drawing.Point(33, 3);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.label9.Size = new System.Drawing.Size(186, 19);
@@ -229,7 +229,7 @@
             this.label10.Font = new System.Drawing.Font("Segoe Fluent Icons", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Location = new System.Drawing.Point(33, 0);
+            this.label10.Location = new System.Drawing.Point(33, 3);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.label10.Size = new System.Drawing.Size(192, 19);
@@ -333,7 +333,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(440, 482);
-            this.panel3.TabIndex = 11;
+            this.panel3.TabIndex = 1;
             // 
             // pictureBox10
             // 
@@ -364,6 +364,9 @@
             this.txtPassword.Size = new System.Drawing.Size(290, 20);
             this.txtPassword.TabIndex = 72;
             this.txtPassword.Text = "CONTRASEÑA";
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // label12
             // 
@@ -395,7 +398,7 @@
             this.btnLogIn.Location = new System.Drawing.Point(85, 281);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(290, 29);
-            this.btnLogIn.TabIndex = 69;
+            this.btnLogIn.TabIndex = 0;
             this.btnLogIn.Text = "INICIAR SESIÓN";
             this.btnLogIn.UseVisualStyleBackColor = false;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
@@ -418,8 +421,10 @@
             this.txtEmail.Location = new System.Drawing.Point(85, 133);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(290, 20);
-            this.txtEmail.TabIndex = 62;
+            this.txtEmail.TabIndex = 3;
             this.txtEmail.Text = "CORREO ELECTRONICO";
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // LogIn
             // 

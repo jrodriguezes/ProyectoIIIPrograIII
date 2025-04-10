@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Npgsql;
 using Objects;
 
@@ -32,7 +33,7 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            NpgsqlCommand cmd = new NpgsqlCommand("Select password from Users where id=" + Email, actualConnection);
+            NpgsqlCommand cmd = new NpgsqlCommand("Select password from Users where email=" + "'" + Email + "'", actualConnection);
 
             NpgsqlDataReader dr = cmd.ExecuteReader();
 
@@ -52,7 +53,7 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            NpgsqlCommand cmd = new NpgsqlCommand("Select user_id from Users where Email=" + Email, actualConnection);
+            NpgsqlCommand cmd = new NpgsqlCommand("Select Id from Users where Email=" + "'" +Email + "'", actualConnection);
             NpgsqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.HasRows)
@@ -61,7 +62,7 @@ namespace Data
                 {
                     id = dr.GetInt32(0);
                 }
-            }
+            } 
             return id;
         }
     }

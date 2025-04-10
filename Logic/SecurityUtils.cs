@@ -47,7 +47,7 @@ namespace Logic
             }
             else
             {
-                MessageBox.Show("Contraseña incorrecta o usuario inhabilitado o no existente.");
+                MessageBox.Show("Contraseña incorrecta/usuario inhabilitado o no existente.");
             }
             return isValid;
         }
