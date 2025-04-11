@@ -179,6 +179,23 @@ namespace Presentation
             }
         }
 
+        private void txtId_Enter(object sender, EventArgs e)
+        {
+            if (txtId.Text == "CÉDULA")
+            {
+                txtId.Text = "";
+                txtId.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtId_Leave(object sender, EventArgs e)
+        {
+            if (txtId.Text == "")
+            {
+                txtId.Text = "CÉDULA";
+                txtId.ForeColor = Color.DimGray;
+            }
+        }
     }
 }
 

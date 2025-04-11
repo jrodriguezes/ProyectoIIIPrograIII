@@ -50,6 +50,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pb_Exit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -64,8 +66,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -79,13 +79,13 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -353,6 +353,29 @@
             this.panel2.Size = new System.Drawing.Size(440, 482);
             this.panel2.TabIndex = 32;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
+            this.pictureBox5.Location = new System.Drawing.Point(68, 92);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(290, 1);
+            this.pictureBox5.TabIndex = 64;
+            this.pictureBox5.TabStop = false;
+            // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.ForeColor = System.Drawing.Color.DimGray;
+            this.txtId.Location = new System.Drawing.Point(68, 69);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(290, 20);
+            this.txtId.TabIndex = 63;
+            this.txtId.Text = "CÉDULA";
+            this.txtId.Enter += new System.EventHandler(this.txtId_Enter);
+            this.txtId.Leave += new System.EventHandler(this.txtId_Leave);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(362, 456);
@@ -515,27 +538,6 @@
             this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.Location = new System.Drawing.Point(68, 92);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(290, 1);
-            this.pictureBox5.TabIndex = 64;
-            this.pictureBox5.TabStop = false;
-            // 
-            // txtId
-            // 
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.ForeColor = System.Drawing.Color.DimGray;
-            this.txtId.Location = new System.Drawing.Point(68, 69);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(290, 20);
-            this.txtId.TabIndex = 63;
-            this.txtId.Text = "CÉDULA";
-            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,13 +573,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }

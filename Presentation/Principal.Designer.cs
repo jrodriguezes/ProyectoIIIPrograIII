@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.PanelSubMenu3 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
@@ -41,16 +42,16 @@
             this.btnEditor = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pbSubMenuLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pbSubMenuLogo = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
             this.PanelSubMenu3.SuspendLayout();
             this.PanelSubMenu2.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -242,6 +243,18 @@
             this.panelLogo.Size = new System.Drawing.Size(250, 128);
             this.panelLogo.TabIndex = 0;
             // 
+            // pbSubMenuLogo
+            // 
+            this.pbSubMenuLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbSubMenuLogo.Image = global::Presentation.Properties.Resources.submenu_;
+            this.pbSubMenuLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbSubMenuLogo.Name = "pbSubMenuLogo";
+            this.pbSubMenuLogo.Size = new System.Drawing.Size(250, 128);
+            this.pbSubMenuLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubMenuLogo.TabIndex = 0;
+            this.pbSubMenuLogo.TabStop = false;
+            this.pbSubMenuLogo.Click += new System.EventHandler(this.pbSubMenuLogo_Click);
+            // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -263,18 +276,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // pbSubMenuLogo
-            // 
-            this.pbSubMenuLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbSubMenuLogo.Image = global::Presentation.Properties.Resources.submenu_;
-            this.pbSubMenuLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbSubMenuLogo.Name = "pbSubMenuLogo";
-            this.pbSubMenuLogo.Size = new System.Drawing.Size(250, 128);
-            this.pbSubMenuLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSubMenuLogo.TabIndex = 0;
-            this.pbSubMenuLogo.TabStop = false;
-            this.pbSubMenuLogo.Click += new System.EventHandler(this.pbSubMenuLogo_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,17 +284,18 @@
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Ventana principal";
             this.panelSideMenu.ResumeLayout(false);
             this.PanelSubMenu3.ResumeLayout(false);
             this.PanelSubMenu2.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
