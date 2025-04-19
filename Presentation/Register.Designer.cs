@@ -61,7 +61,6 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -83,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
@@ -342,7 +340,6 @@
             this.panel2.Controls.Add(this.btnRegister);
             this.panel2.Controls.Add(this.cmbGenre);
             this.panel2.Controls.Add(this.dtpBirthday);
-            this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.pictureBox7);
             this.panel2.Controls.Add(this.txtName);
             this.panel2.Controls.Add(this.pictureBox8);
@@ -356,7 +353,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.Location = new System.Drawing.Point(68, 92);
+            this.pictureBox5.Location = new System.Drawing.Point(83, 61);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(290, 1);
             this.pictureBox5.TabIndex = 64;
@@ -368,7 +365,7 @@
             this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtId.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.Color.DimGray;
-            this.txtId.Location = new System.Drawing.Point(68, 69);
+            this.txtId.Location = new System.Drawing.Point(83, 38);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(290, 20);
             this.txtId.TabIndex = 63;
@@ -389,7 +386,7 @@
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.White;
-            this.pictureBox10.Location = new System.Drawing.Point(68, 408);
+            this.pictureBox10.Location = new System.Drawing.Point(85, 439);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(290, 1);
             this.pictureBox10.TabIndex = 61;
@@ -398,7 +395,7 @@
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.White;
-            this.pictureBox9.Location = new System.Drawing.Point(66, 293);
+            this.pictureBox9.Location = new System.Drawing.Point(83, 262);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(290, 1);
             this.pictureBox9.TabIndex = 60;
@@ -410,7 +407,7 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(66, 270);
+            this.txtPassword.Location = new System.Drawing.Point(83, 239);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(290, 20);
             this.txtPassword.TabIndex = 59;
@@ -423,7 +420,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(165, 308);
+            this.label12.Location = new System.Drawing.Point(181, 276);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(93, 13);
             this.label12.TabIndex = 58;
@@ -432,9 +429,9 @@
             // pbFaceID
             // 
             this.pbFaceID.Image = global::Presentation.Properties.Resources.face_id;
-            this.pbFaceID.Location = new System.Drawing.Point(183, 328);
+            this.pbFaceID.Location = new System.Drawing.Point(79, 297);
             this.pbFaceID.Name = "pbFaceID";
-            this.pbFaceID.Size = new System.Drawing.Size(54, 41);
+            this.pbFaceID.Size = new System.Drawing.Size(294, 107);
             this.pbFaceID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFaceID.TabIndex = 57;
             this.pbFaceID.TabStop = false;
@@ -447,7 +444,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.btnRegister.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRegister.Location = new System.Drawing.Point(66, 379);
+            this.btnRegister.Location = new System.Drawing.Point(83, 410);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(290, 29);
             this.btnRegister.TabIndex = 0;
@@ -466,7 +463,7 @@
             "Masculino",
             "Femenino",
             "Prefiero no decirlo"});
-            this.cmbGenre.Location = new System.Drawing.Point(66, 187);
+            this.cmbGenre.Location = new System.Drawing.Point(83, 156);
             this.cmbGenre.Name = "cmbGenre";
             this.cmbGenre.Size = new System.Drawing.Size(290, 29);
             this.cmbGenre.TabIndex = 55;
@@ -478,24 +475,15 @@
             this.dtpBirthday.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dtpBirthday.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDark;
             this.dtpBirthday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBirthday.Location = new System.Drawing.Point(66, 229);
+            this.dtpBirthday.Location = new System.Drawing.Point(83, 198);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(290, 27);
             this.dtpBirthday.TabIndex = 54;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.White;
-            this.pictureBox6.Location = new System.Drawing.Point(66, 213);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(290, 1);
-            this.pictureBox6.TabIndex = 53;
-            this.pictureBox6.TabStop = false;
-            // 
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.Location = new System.Drawing.Point(66, 173);
+            this.pictureBox7.Location = new System.Drawing.Point(83, 145);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(290, 1);
             this.pictureBox7.TabIndex = 52;
@@ -507,7 +495,7 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtName.Location = new System.Drawing.Point(66, 150);
+            this.txtName.Location = new System.Drawing.Point(83, 119);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(290, 20);
             this.txtName.TabIndex = 51;
@@ -518,7 +506,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.Location = new System.Drawing.Point(66, 133);
+            this.pictureBox8.Location = new System.Drawing.Point(83, 105);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(290, 1);
             this.pictureBox8.TabIndex = 50;
@@ -530,7 +518,7 @@
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.DimGray;
-            this.txtEmail.Location = new System.Drawing.Point(66, 110);
+            this.txtEmail.Location = new System.Drawing.Point(83, 79);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(290, 20);
             this.txtEmail.TabIndex = 49;
@@ -551,6 +539,7 @@
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.Load += new System.EventHandler(this.Register_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -577,7 +566,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
@@ -608,7 +596,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbGenre;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
-        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.PictureBox pictureBox8;

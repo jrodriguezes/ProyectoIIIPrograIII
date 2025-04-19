@@ -6,7 +6,6 @@ using Logic;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Objects;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace Presentation
 {
@@ -46,8 +45,14 @@ namespace Presentation
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
-            UserService userService = new UserService();
-            string imagePath = @"C:\Users\jerem\Downloads\frontal.jpg";            // ruta o captura previa
+            if (pbFaceID.Image == null)
+            {
+                MessageBox.Show("⚠️ No hay imagen capturada. Usá el botón de Face ID primero.");
+                return;
+            }
+
+            string imagePath = Path.Combine(Path.GetTempPath(), $"face_{Guid.NewGuid()}.jpg");
+            pbFaceID.Image.Save(imagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
 
             UserModel newUser = new UserModel
             {
@@ -64,27 +69,28 @@ namespace Presentation
             string endpoint = "https://faceapi-utn2025.cognitiveservices.azure.com/";
             string key = "2hOrQAs5oiB1o6XKDSl5pVkhlHvZ15TUciHoeg3bGxglNgSdeqyAJQQJ99BDACYeBjFXJ3w3AAAKACOGb7yu";
 
-            var faceClient = new FaceClient(new ApiKeyServiceClientCredentials(key))
-            {
-                Endpoint = endpoint
-            };
+            var faceIdService = new FaceIdService(endpoint, key);
 
             try
             {
-                var groups = await faceClient.PersonGroup.ListAsync();
-                MessageBox.Show($"✅ Conexión correcta. Total de grupos encontrados: {groups.Count}");
-                MessageBox.Show("Usuario registrado con Face ID");
+                await faceIdService.RegisterUserAsync(newUser, imagePath);
+
+                UserService userService = new UserService();
+                userService.InsertUser(newUser);
+
+                MessageBox.Show("✅ Usuario registrado con Face ID exitosamente!");
+                ClearText();
             }
             catch (APIErrorException ex)
             {
-                MessageBox.Show($"❌ ERROR Face API: {ex.Response.StatusCode} - {ex.Message}");
+                MessageBox.Show($"❌ Error en Face API: {ex.Message}");
             }
-
-            //Ya se guarda en BD dentro de FaceIdServic
-            userService.InsertUser(newUser);
-            MessageBox.Show("Te has registrado satisfactoriamente!");
-            ClearText();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"⚠️ Error general: {ex.Message}");
+            }
         }
+
 
         private int calculateAge(DateTime birthday)
         {
@@ -101,7 +107,18 @@ namespace Presentation
 
         private void pbFaceID_Click(object sender, EventArgs e)
         {
-
+            using (CameraCapture cam = new CameraCapture())
+            {
+                if (cam.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(cam.CapturedImagePath))
+                {
+                    pbFaceID.Image = Image.FromFile(cam.CapturedImagePath);
+                    MessageBox.Show($"✅ Imagen guardada en: {cam.CapturedImagePath}");
+                }
+                else
+                {
+                    MessageBox.Show("⚠️ No se capturó ninguna imagen.");
+                }
+            }
         }
 
         private void txtEmail_Enter(object sender, EventArgs e)
@@ -195,6 +212,11 @@ namespace Presentation
                 txtId.Text = "CÉDULA";
                 txtId.ForeColor = Color.DimGray;
             }
+        }
+
+        private void Register_FormClosing(object sender, FormClosingEventArgs e)
+        {
+    
         }
     }
 }
