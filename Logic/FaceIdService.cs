@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
@@ -78,5 +79,32 @@ namespace Logic
             // Guardar el usuario con el faceId en la base de datos
             userService.InsertUser(user);
         }
+
+        public async Task<Guid?> IdentifyUserByImage(string imagePath)
+        {
+            using (Stream stream = File.OpenRead(imagePath))
+            {
+                var faces = await faceClient.Face.DetectWithStreamAsync(stream);
+                var faceIds = faces.Select(f => f.FaceId.Value).ToList();
+
+                if (faceIds.Count == 0)
+                {
+                    return null;
+                }
+
+                var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
+
+                foreach (var result in results)
+                {
+                    if (result.Candidates.Count > 0)
+                    {
+                        return result.Candidates[0].PersonId;
+                    }
+                }
+
+                return null;
+            }
+        }
+
     }
 }

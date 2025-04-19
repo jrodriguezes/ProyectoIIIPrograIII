@@ -58,19 +58,35 @@ namespace Presentation
         {
             if (currentFrame != null)
             {
-                string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "captura_face.jpg");
-                currentFrame.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
-                CapturedImagePath = path;
+                try
+                {
+                    // ✅ Ruta única y segura en carpeta de usuario
+                    string filename = $"captura_face_{Guid.NewGuid()}.jpg";
+                    string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), filename);
 
-                MessageBox.Show("📸 Imagen capturada correctamente.");
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                    // ✅ Clonamos el frame por seguridad
+                    using (Bitmap safeCopy = new Bitmap(currentFrame))
+                    {
+                        safeCopy.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    }
+
+                    CapturedImagePath = path;
+
+                    MessageBox.Show("📸 Imagen capturada correctamente.");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"❌ Error al guardar la imagen: {ex.Message}");
+                }
             }
             else
             {
                 MessageBox.Show("⚠️ No se detectó ninguna imagen.");
             }
         }
+
 
         private void CameraCapture_FormClosing(object sender, FormClosingEventArgs e)
         {

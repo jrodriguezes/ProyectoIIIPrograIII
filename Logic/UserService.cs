@@ -26,5 +26,11 @@ namespace Logic
         {
             return crud.getPasswordbyId(id);
         }
+
+        public Guid getFaceIdById(int id)
+        {
+            return crud.getFaceIdById(id);
+        }
+
     }
 }

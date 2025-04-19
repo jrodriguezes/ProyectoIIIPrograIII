@@ -65,5 +65,22 @@ namespace Data
             } 
             return id;
         }
+
+        public Guid getFaceIdById(int id)
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT faceid FROM Users WHERE id=" + id, actualConnection);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows && dr.Read())
+            {
+                return dr.GetGuid(0);
+            }
+
+            return Guid.Empty;
+        }
+
     }
 }
