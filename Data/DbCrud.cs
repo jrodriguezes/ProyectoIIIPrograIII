@@ -192,6 +192,32 @@ namespace Data
             return rolesList;
         }
 
+        public List<BotPromptModel> getAllPrompts()
+        {
+            List<BotPromptModel> promptList = new List<BotPromptModel>();
+
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string query = "SELECT id, PROMPT, status FROM BOT_PROMPT"; 
+
+            NpgsqlCommand cmd = new NpgsqlCommand(query, actualConnection);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read()) 
+            {
+                BotPromptModel prompt = new BotPromptModel
+                {
+                    id = Convert.ToInt32(dr["id"]),
+                    prompt = Convert.ToString(dr["PROMPT"]),
+                    status = Convert.ToInt32(dr["status"]),
+                };
+                promptList.Add(prompt);
+            }
+
+            return promptList;
+        }
+
 
     }
 }

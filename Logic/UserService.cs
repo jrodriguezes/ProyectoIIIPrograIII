@@ -52,5 +52,10 @@ namespace Logic
             return crud.getAllRoles();
         }
 
+        public List<BotPromptModel> getAllPrompts()
+        {
+            return crud.getAllPrompts();
+        }
+
     }
 }
