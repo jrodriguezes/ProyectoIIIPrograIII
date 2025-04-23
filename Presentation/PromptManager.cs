@@ -20,11 +20,6 @@ namespace Presentation
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PromptManager_Load(object sender, EventArgs e)
         {
             loadAllPrompts();
@@ -43,6 +38,11 @@ namespace Presentation
                 dgvPrompt.Rows[rowIndex].Cells["prompt"].Value = prompt.prompt;
                 dgvPrompt.Rows[rowIndex].Cells["status"].Value = prompt.status == 1 ? true : false;
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
