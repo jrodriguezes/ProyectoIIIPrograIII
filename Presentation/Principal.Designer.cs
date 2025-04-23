@@ -38,7 +38,6 @@
             this.btnReports = new System.Windows.Forms.Button();
             this.btnUserManagment = new System.Windows.Forms.Button();
             this.btnPrompts = new System.Windows.Forms.Button();
-            this.btnRoleManagment = new System.Windows.Forms.Button();
             this.btnManagment = new System.Windows.Forms.Button();
             this.PanelSubMenu2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
@@ -83,7 +82,6 @@
             this.PanelSubMenu3.Controls.Add(this.btnReports);
             this.PanelSubMenu3.Controls.Add(this.btnUserManagment);
             this.PanelSubMenu3.Controls.Add(this.btnPrompts);
-            this.PanelSubMenu3.Controls.Add(this.btnRoleManagment);
             this.PanelSubMenu3.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenu3.Location = new System.Drawing.Point(0, 385);
             this.PanelSubMenu3.Name = "PanelSubMenu3";
@@ -97,7 +95,7 @@
             this.panelReports.Controls.Add(this.button2);
             this.panelReports.Controls.Add(this.button3);
             this.panelReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReports.Location = new System.Drawing.Point(0, 160);
+            this.panelReports.Location = new System.Drawing.Point(0, 120);
             this.panelReports.Name = "panelReports";
             this.panelReports.Size = new System.Drawing.Size(233, 124);
             this.panelReports.TabIndex = 6;
@@ -157,7 +155,7 @@
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.ForeColor = System.Drawing.Color.LightGray;
-            this.btnReports.Location = new System.Drawing.Point(0, 120);
+            this.btnReports.Location = new System.Drawing.Point(0, 80);
             this.btnReports.Name = "btnReports";
             this.btnReports.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnReports.Size = new System.Drawing.Size(233, 40);
@@ -174,7 +172,7 @@
             this.btnUserManagment.FlatAppearance.BorderSize = 0;
             this.btnUserManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserManagment.ForeColor = System.Drawing.Color.LightGray;
-            this.btnUserManagment.Location = new System.Drawing.Point(0, 80);
+            this.btnUserManagment.Location = new System.Drawing.Point(0, 40);
             this.btnUserManagment.Name = "btnUserManagment";
             this.btnUserManagment.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnUserManagment.Size = new System.Drawing.Size(233, 40);
@@ -191,7 +189,7 @@
             this.btnPrompts.FlatAppearance.BorderSize = 0;
             this.btnPrompts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrompts.ForeColor = System.Drawing.Color.LightGray;
-            this.btnPrompts.Location = new System.Drawing.Point(0, 40);
+            this.btnPrompts.Location = new System.Drawing.Point(0, 0);
             this.btnPrompts.Name = "btnPrompts";
             this.btnPrompts.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnPrompts.Size = new System.Drawing.Size(233, 40);
@@ -199,22 +197,7 @@
             this.btnPrompts.Text = "Edición de mensajes";
             this.btnPrompts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrompts.UseVisualStyleBackColor = false;
-            // 
-            // btnRoleManagment
-            // 
-            this.btnRoleManagment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.btnRoleManagment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRoleManagment.FlatAppearance.BorderSize = 0;
-            this.btnRoleManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRoleManagment.ForeColor = System.Drawing.Color.LightGray;
-            this.btnRoleManagment.Location = new System.Drawing.Point(0, 0);
-            this.btnRoleManagment.Name = "btnRoleManagment";
-            this.btnRoleManagment.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnRoleManagment.Size = new System.Drawing.Size(233, 40);
-            this.btnRoleManagment.TabIndex = 7;
-            this.btnRoleManagment.Text = "Gestión de roles";
-            this.btnRoleManagment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRoleManagment.UseVisualStyleBackColor = false;
+            this.btnPrompts.Click += new System.EventHandler(this.btnPrompts_Click);
             // 
             // btnManagment
             // 
@@ -413,7 +396,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelReports;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnRoleManagment;
     }
 }
 

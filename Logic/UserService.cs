@@ -32,5 +32,25 @@ namespace Logic
             return crud.getFaceIdById(id);
         }
 
+        public List<UserModel> getAllUsersIdAndName()
+        {
+            return crud.getAllUsersIdAndName();
+        }
+
+        public List<UserModel> getUserInformationById(int userId)
+        {
+            return crud.getUserById(userId);
+        }
+
+        public List<ClientTypeModel> getAllClientTypes()
+        {
+            return crud.getAllClientTypes();
+        }
+
+        public List<RoleModel> getAllRoles()
+        {
+            return crud.getAllRoles();
+        }
+
     }
 }

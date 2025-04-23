@@ -63,7 +63,8 @@ namespace Presentation
                 birthday = dtpBirthday.Value,
                 age = calculateAge(dtpBirthday.Value),
                 password = securityUtils.encryptMD5(txtPassword.Text),
-                role = "Usuario"
+                clientType = 1,
+                role = 1,
             };
 
             string endpoint = "https://faceapi-utn2025.cognitiveservices.azure.com/";

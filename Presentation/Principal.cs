@@ -197,5 +197,10 @@ namespace Presentation
         {
             openChildForm(new UserManagment());
         }
+
+        private void btnPrompts_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PromptManager());
+        }
     }
 }
