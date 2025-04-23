@@ -218,6 +218,41 @@ namespace Data
             return promptList;
         }
 
+        public void insertClientType(ClientTypeModel clientType)
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string insertClientTypeQuery = "INSERT INTO CLIENT_TYPE (type, status) " +
+                                           "VALUES ('" + clientType.clientType + "', " + clientType.status + ");";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(insertClientTypeQuery, actualConnection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void insertRole(RoleModel role)
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string insertRoleQuery = "INSERT INTO Role (Role, status) " +
+                                     "VALUES ('" + role.role + "', " + role.status + ");";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(insertRoleQuery, actualConnection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void insertBotPrompt(BotPromptModel prompt)
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string insertPromptQuery = "INSERT INTO BOT_PROMPT (PROMPT, status) " +
+                                       "VALUES ('" + prompt.prompt + "', " + prompt.status + ");";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(insertPromptQuery, actualConnection);
+            cmd.ExecuteNonQuery();
+        }
 
     }
 }

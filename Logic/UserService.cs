@@ -56,6 +56,17 @@ namespace Logic
         {
             return crud.getAllPrompts();
         }
-
+        public void insertClientType(ClientTypeModel model)
+        {
+            crud.insertClientType(model);
+        }
+        public void insertRole(RoleModel model)
+        {
+            crud.insertRole(model);
+        }
+        public void insertBotPrompt(BotPromptModel model)
+        {
+            crud.insertBotPrompt(model);
+        }
     }
 }

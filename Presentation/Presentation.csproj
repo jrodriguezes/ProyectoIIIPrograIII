@@ -82,6 +82,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPrompt.Designer.cs">
+      <DependentUpon>AddPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClientType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClientType.Designer.cs">
+      <DependentUpon>AddClientType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRole.Designer.cs">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="CameraCapture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +150,15 @@
     <Compile Include="UserManagment.Designer.cs">
       <DependentUpon>UserManagment.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddPrompt.resx">
+      <DependentUpon>AddPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClientType.resx">
+      <DependentUpon>AddClientType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRole.resx">
+      <DependentUpon>AddRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CameraCapture.resx">
       <DependentUpon>CameraCapture.cs</DependentUpon>
     </EmbeddedResource>

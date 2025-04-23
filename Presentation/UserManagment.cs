@@ -70,6 +70,14 @@ namespace Presentation
             }
         }
 
+        public void loadAllIntoDGV()
+        {
+            loadRoles();
+            loadClientTypes();
+            loadInformationIntoDGVUsers();
+        }
+
+
         private void loadClientTypes()
         {
             List<ClientTypeModel> clientTypeList = userService.getAllClientTypes();
@@ -172,7 +180,8 @@ namespace Presentation
 
         private void btnAddRole_Click(object sender, EventArgs e)
         {
-
+            AddRole form = new AddRole(this);
+            form.Show();
         }
 
         private void btnModRole_Click(object sender, EventArgs e)
@@ -197,7 +206,8 @@ namespace Presentation
 
         private void btnAddClientType_Click(object sender, EventArgs e)
         {
-
+            AddClientType form = new AddClientType(this);
+            form.Show();
         }
 
         private void rolePage_Click(object sender, EventArgs e)

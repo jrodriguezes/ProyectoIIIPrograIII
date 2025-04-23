@@ -25,7 +25,7 @@ namespace Presentation
             loadAllPrompts();
         }
 
-        private void loadAllPrompts()
+        public void loadAllPrompts()
         {
             List<BotPromptModel> promptList = userService.getAllPrompts();
 
@@ -40,9 +40,10 @@ namespace Presentation
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnAddPrompt_Click(object sender, EventArgs e)
         {
-
+            AddPrompt form = new AddPrompt(this);
+            form.Show();
         }
     }
 }
