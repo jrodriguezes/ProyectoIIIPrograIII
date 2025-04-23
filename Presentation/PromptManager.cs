@@ -15,6 +15,7 @@ namespace Presentation
     public partial class PromptManager : Form
     {
         UserService userService = new UserService();
+        int selectedRowIndexPrompt = -1;
         public PromptManager()
         {
             InitializeComponent();
@@ -44,6 +45,33 @@ namespace Presentation
         {
             AddPrompt form = new AddPrompt(this);
             form.Show();
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndexPrompt >= 0)
+            {
+                BotPromptModel model = new BotPromptModel
+                {
+                    id = Convert.ToInt32(dgvPrompt.Rows[selectedRowIndexPrompt].Cells["serialId"].Value),
+                    prompt = Convert.ToString(dgvPrompt.Rows[selectedRowIndexPrompt].Cells["prompt"].Value),
+                    status = (bool)dgvPrompt.Rows[selectedRowIndexPrompt].Cells["status"].Value ? 1 : 0,
+                };
+                userService.updateBotPrompt(model);
+                MessageBox.Show("Haz modificado satisfactoriamente un mensaje.");
+            }
+            else
+            {
+                MessageBox.Show("El indice no debe de ser negativo. Haga click en una fila mensaje.");
+            }
+        }
+
+        private void dgvPrompt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedRowIndexPrompt = e.RowIndex;
+            }
         }
     }
 }

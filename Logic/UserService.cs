@@ -68,5 +68,20 @@ namespace Logic
         {
             crud.insertBotPrompt(model);
         }
+
+        public void updateBotPrompt(BotPromptModel model)
+        {
+            crud.updateBotPrompt(model);
+        }
+
+        public void updateClientType(ClientTypeModel model)
+        {
+            crud.updateClientType(model);
+        }
+
+        public void updateRole(RoleModel model)
+        {
+            crud.updateRole(model);
+        }
     }
 }

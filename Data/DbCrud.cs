@@ -254,6 +254,56 @@ namespace Data
             cmd.ExecuteNonQuery();
         }
 
+        public void updateBotPrompt(BotPromptModel prompt)
+        {
+            // Crear una conexión a la base de datos
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            // Consulta UPDATE para modificar el estado y el mensaje usando el objeto
+            string updatePromptQuery = "UPDATE BOT_PROMPT SET PROMPT = '" + prompt.prompt + "', status = " + prompt.status + " WHERE ID = " + prompt.id + ";";
+
+            // Preparar el comando con la consulta
+            NpgsqlCommand cmd = new NpgsqlCommand(updatePromptQuery, actualConnection);
+
+            // Ejecutar la consulta
+            cmd.ExecuteNonQuery();
+        }
+
+        public void updateClientType(ClientTypeModel clientType)
+        {
+            // Crear una conexión a la base de datos
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            // Consulta UPDATE para modificar el tipo y el estado utilizando el objeto
+            string updateClientTypeQuery = "UPDATE CLIENT_TYPE SET type = '" + clientType.clientType + "', status = " + clientType.status + " WHERE id = " + clientType.id + ";";
+
+            // Preparar el comando con la consulta
+            NpgsqlCommand cmd = new NpgsqlCommand(updateClientTypeQuery, actualConnection);
+
+            // Ejecutar la consulta
+            cmd.ExecuteNonQuery();
+        }
+
+        public void updateRole(RoleModel role)
+        {
+            // Crear una conexión a la base de datos
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            // Consulta UPDATE para modificar el rol y el estado utilizando el objeto
+            string updateRoleQuery = "UPDATE Role SET Role = '" + role.role + "', status = " + role.status + " WHERE id = " + role.id + ";";
+
+            // Preparar el comando con la consulta
+            NpgsqlCommand cmd = new NpgsqlCommand(updateRoleQuery, actualConnection);
+
+            // Ejecutar la consulta
+            cmd.ExecuteNonQuery();
+        }
+
+
+
     }
 }
 

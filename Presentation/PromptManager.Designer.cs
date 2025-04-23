@@ -32,8 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnMod = new System.Windows.Forms.Button();
             this.btnAddPrompt = new System.Windows.Forms.Button();
             this.dgvPrompt = new System.Windows.Forms.DataGridView();
             this.serialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +44,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.button4);
+            this.panel5.Controls.Add(this.btnMod);
             this.panel5.Controls.Add(this.btnAddPrompt);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 523);
@@ -54,31 +52,19 @@
             this.panel5.Size = new System.Drawing.Size(684, 38);
             this.panel5.TabIndex = 21;
             // 
-            // button3
+            // btnMod
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Location = new System.Drawing.Point(332, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(166, 38);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "DESHABILITAR";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button4.Location = new System.Drawing.Point(166, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 38);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "MODIFICAR";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnMod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.btnMod.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMod.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMod.Location = new System.Drawing.Point(166, 0);
+            this.btnMod.Name = "btnMod";
+            this.btnMod.Size = new System.Drawing.Size(166, 38);
+            this.btnMod.TabIndex = 4;
+            this.btnMod.Text = "MODIFICAR";
+            this.btnMod.UseVisualStyleBackColor = false;
+            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // btnAddPrompt
             // 
@@ -131,6 +117,7 @@
             this.dgvPrompt.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPrompt.Size = new System.Drawing.Size(684, 523);
             this.dgvPrompt.TabIndex = 22;
+            this.dgvPrompt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrompt_CellClick);
             // 
             // serialId
             // 
@@ -173,8 +160,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnMod;
         private System.Windows.Forms.Button btnAddPrompt;
         private System.Windows.Forms.DataGridView dgvPrompt;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialId;

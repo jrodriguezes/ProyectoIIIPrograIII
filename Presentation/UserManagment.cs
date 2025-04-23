@@ -23,6 +23,9 @@ namespace Presentation
         }
         int selectedRowIndexUsers = -1;
         int selectedRowIndexUserInformation = -1;
+        int selectedRowIndexRoleInformation = -1;
+        int selectedRowIndexClientTypeInformation = -1;
+
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -163,17 +166,7 @@ namespace Presentation
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnMod_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnInactive_Click(object sender, EventArgs e)
         {
 
         }
@@ -186,22 +179,39 @@ namespace Presentation
 
         private void btnModRole_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnDelRole_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDeactiveClientType_Click(object sender, EventArgs e)
-        {
-
+            if (selectedRowIndexRoleInformation >= 0)
+            {
+                RoleModel model = new RoleModel
+                {
+                    id = Convert.ToInt32(dgvRole.Rows[selectedRowIndexRoleInformation].Cells["serialIdStatus"].Value),
+                    role = Convert.ToString(dgvRole.Rows[selectedRowIndexRoleInformation].Cells["clientTypeRole"].Value),
+                    status = (bool)dgvRole.Rows[selectedRowIndexRoleInformation].Cells["roleClientType"].Value ? 1 : 0,
+                };
+                userService.updateRole(model);
+                MessageBox.Show("Haz modificado satisfactoriamente un rol.");
+            }
+            else
+            {
+                MessageBox.Show("El indice no debe de ser negativo. Haga click en una fila rol.");
+            }
         }
 
         private void btnModClientType_Click(object sender, EventArgs e)
         {
-
+            if (selectedRowIndexClientTypeInformation >= 0)
+            {
+                ClientTypeModel model = new ClientTypeModel
+                {
+                    id = Convert.ToInt32(dgvClientType.Rows[selectedRowIndexClientTypeInformation].Cells["SerialIdClientType"].Value),
+                    clientType = Convert.ToString(dgvClientType.Rows[selectedRowIndexClientTypeInformation].Cells["ClientTypeClientType"].Value),
+                    status = (bool)dgvClientType.Rows[selectedRowIndexClientTypeInformation].Cells["statusClientType"].Value ? 1 : 0,
+                };
+                userService.updateClientType(model);
+                MessageBox.Show("Haz modificado satisfactoriamente un tipo-cliente.");
+            } else
+            {
+                MessageBox.Show("El indice no debe de ser negativo. Haga click en una fila tipo-cliente.");
+            }
         }
 
         private void btnAddClientType_Click(object sender, EventArgs e)
@@ -210,15 +220,26 @@ namespace Presentation
             form.Show();
         }
 
-        private void rolePage_Click(object sender, EventArgs e)
-        {
-          
-        }
-
         private void UserManagment_Load(object sender, EventArgs e)
         {
             loadRoles();
             loadClientTypes();
+        }
+
+        private void dgvRole_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedRowIndexRoleInformation = e.RowIndex;
+            }
+        }
+
+        private void dgvClientType_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedRowIndexClientTypeInformation = e.RowIndex;
+            }
         }
     }
 }
