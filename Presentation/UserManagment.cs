@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Presentation
 {
-    public partial class Editor : Form
+    public partial class UserManagment : Form
     {
-        public Editor()
+        public UserManagment()
         {
             InitializeComponent();
+
         }
 
-        private async void Editor_Load(object sender, EventArgs e)
+        private void dgvInformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            await webView21.EnsureCoreWebView2Async();
-            webView21.CoreWebView2.Navigate("http://localhost:3001/");
+
         }
     }
 }

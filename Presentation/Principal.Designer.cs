@@ -31,10 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.PanelSubMenu3 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.panelReports = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnUserManagment = new System.Windows.Forms.Button();
+            this.btnPrompts = new System.Windows.Forms.Button();
+            this.btnRoleManagment = new System.Windows.Forms.Button();
+            this.btnManagment = new System.Windows.Forms.Button();
             this.PanelSubMenu2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -47,6 +52,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
             this.PanelSubMenu3.SuspendLayout();
+            this.panelReports.SuspendLayout();
             this.PanelSubMenu2.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).BeginInit();
@@ -59,7 +65,7 @@
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.panelSideMenu.Controls.Add(this.PanelSubMenu3);
-            this.panelSideMenu.Controls.Add(this.button9);
+            this.panelSideMenu.Controls.Add(this.btnManagment);
             this.panelSideMenu.Controls.Add(this.PanelSubMenu2);
             this.panelSideMenu.Controls.Add(this.btnEditor);
             this.panelSideMenu.Controls.Add(this.btnDashboard);
@@ -72,75 +78,159 @@
             // 
             // PanelSubMenu3
             // 
-            this.PanelSubMenu3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.PanelSubMenu3.Controls.Add(this.button10);
-            this.PanelSubMenu3.Controls.Add(this.button11);
-            this.PanelSubMenu3.Controls.Add(this.button12);
+            this.PanelSubMenu3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.PanelSubMenu3.Controls.Add(this.panelReports);
+            this.PanelSubMenu3.Controls.Add(this.btnReports);
+            this.PanelSubMenu3.Controls.Add(this.btnUserManagment);
+            this.PanelSubMenu3.Controls.Add(this.btnPrompts);
+            this.PanelSubMenu3.Controls.Add(this.btnRoleManagment);
             this.PanelSubMenu3.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenu3.Location = new System.Drawing.Point(0, 385);
             this.PanelSubMenu3.Name = "PanelSubMenu3";
-            this.PanelSubMenu3.Size = new System.Drawing.Size(250, 122);
+            this.PanelSubMenu3.Size = new System.Drawing.Size(233, 288);
             this.PanelSubMenu3.TabIndex = 6;
             // 
-            // button10
+            // panelReports
             // 
-            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.Color.LightGray;
-            this.button10.Location = new System.Drawing.Point(0, 80);
-            this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(250, 40);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "button10";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = true;
+            this.panelReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelReports.Controls.Add(this.button1);
+            this.panelReports.Controls.Add(this.button2);
+            this.panelReports.Controls.Add(this.button3);
+            this.panelReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReports.Location = new System.Drawing.Point(0, 160);
+            this.panelReports.Name = "panelReports";
+            this.panelReports.Size = new System.Drawing.Size(233, 124);
+            this.panelReports.TabIndex = 6;
             // 
-            // button11
+            // button1
             // 
-            this.button11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.LightGray;
-            this.button11.Location = new System.Drawing.Point(0, 40);
-            this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(250, 40);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "button11";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = true;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.LightGray;
+            this.button1.Location = new System.Drawing.Point(0, 80);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(233, 40);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // button2
             // 
-            this.button12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.Color.LightGray;
-            this.button12.Location = new System.Drawing.Point(0, 0);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(250, 40);
-            this.button12.TabIndex = 0;
-            this.button12.Text = "button12";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = true;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.LightGray;
+            this.button2.Location = new System.Drawing.Point(0, 40);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(233, 40);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // button3
             // 
-            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button9.Location = new System.Drawing.Point(0, 340);
-            this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(250, 45);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "Dashboard";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = true;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.LightGray;
+            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(233, 40);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Reporte";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // btnReports
+            // 
+            this.btnReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReports.FlatAppearance.BorderSize = 0;
+            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReports.ForeColor = System.Drawing.Color.LightGray;
+            this.btnReports.Location = new System.Drawing.Point(0, 120);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReports.Size = new System.Drawing.Size(233, 40);
+            this.btnReports.TabIndex = 2;
+            this.btnReports.Text = "Reportes";
+            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
+            // btnUserManagment
+            // 
+            this.btnUserManagment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btnUserManagment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUserManagment.FlatAppearance.BorderSize = 0;
+            this.btnUserManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserManagment.ForeColor = System.Drawing.Color.LightGray;
+            this.btnUserManagment.Location = new System.Drawing.Point(0, 80);
+            this.btnUserManagment.Name = "btnUserManagment";
+            this.btnUserManagment.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnUserManagment.Size = new System.Drawing.Size(233, 40);
+            this.btnUserManagment.TabIndex = 1;
+            this.btnUserManagment.Text = "Gestión de usuarios/Roles";
+            this.btnUserManagment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUserManagment.UseVisualStyleBackColor = false;
+            this.btnUserManagment.Click += new System.EventHandler(this.btnUserManagment_Click);
+            // 
+            // btnPrompts
+            // 
+            this.btnPrompts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btnPrompts.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPrompts.FlatAppearance.BorderSize = 0;
+            this.btnPrompts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrompts.ForeColor = System.Drawing.Color.LightGray;
+            this.btnPrompts.Location = new System.Drawing.Point(0, 40);
+            this.btnPrompts.Name = "btnPrompts";
+            this.btnPrompts.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnPrompts.Size = new System.Drawing.Size(233, 40);
+            this.btnPrompts.TabIndex = 0;
+            this.btnPrompts.Text = "Edición de mensajes";
+            this.btnPrompts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrompts.UseVisualStyleBackColor = false;
+            // 
+            // btnRoleManagment
+            // 
+            this.btnRoleManagment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btnRoleManagment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRoleManagment.FlatAppearance.BorderSize = 0;
+            this.btnRoleManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRoleManagment.ForeColor = System.Drawing.Color.LightGray;
+            this.btnRoleManagment.Location = new System.Drawing.Point(0, 0);
+            this.btnRoleManagment.Name = "btnRoleManagment";
+            this.btnRoleManagment.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnRoleManagment.Size = new System.Drawing.Size(233, 40);
+            this.btnRoleManagment.TabIndex = 7;
+            this.btnRoleManagment.Text = "Gestión de roles";
+            this.btnRoleManagment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRoleManagment.UseVisualStyleBackColor = false;
+            // 
+            // btnManagment
+            // 
+            this.btnManagment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManagment.FlatAppearance.BorderSize = 0;
+            this.btnManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagment.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnManagment.Location = new System.Drawing.Point(0, 340);
+            this.btnManagment.Name = "btnManagment";
+            this.btnManagment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnManagment.Size = new System.Drawing.Size(233, 45);
+            this.btnManagment.TabIndex = 5;
+            this.btnManagment.Text = "Gestión de software";
+            this.btnManagment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManagment.UseVisualStyleBackColor = true;
+            this.btnManagment.Click += new System.EventHandler(this.btnManagment_Click);
             // 
             // PanelSubMenu2
             // 
@@ -151,7 +241,7 @@
             this.PanelSubMenu2.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenu2.Location = new System.Drawing.Point(0, 218);
             this.PanelSubMenu2.Name = "PanelSubMenu2";
-            this.PanelSubMenu2.Size = new System.Drawing.Size(250, 122);
+            this.PanelSubMenu2.Size = new System.Drawing.Size(233, 122);
             this.PanelSubMenu2.TabIndex = 4;
             // 
             // button6
@@ -163,7 +253,7 @@
             this.button6.Location = new System.Drawing.Point(0, 80);
             this.button6.Name = "button6";
             this.button6.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(250, 40);
+            this.button6.Size = new System.Drawing.Size(233, 40);
             this.button6.TabIndex = 2;
             this.button6.Text = "button6";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,7 +269,7 @@
             this.button7.Location = new System.Drawing.Point(0, 40);
             this.button7.Name = "button7";
             this.button7.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(250, 40);
+            this.button7.Size = new System.Drawing.Size(233, 40);
             this.button7.TabIndex = 1;
             this.button7.Text = "button7";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -195,7 +285,7 @@
             this.button8.Location = new System.Drawing.Point(0, 0);
             this.button8.Name = "button8";
             this.button8.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(250, 40);
+            this.button8.Size = new System.Drawing.Size(233, 40);
             this.button8.TabIndex = 0;
             this.button8.Text = "button8";
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,9 +301,9 @@
             this.btnEditor.Location = new System.Drawing.Point(0, 173);
             this.btnEditor.Name = "btnEditor";
             this.btnEditor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEditor.Size = new System.Drawing.Size(250, 45);
+            this.btnEditor.Size = new System.Drawing.Size(233, 45);
             this.btnEditor.TabIndex = 3;
-            this.btnEditor.Text = "Editor";
+            this.btnEditor.Text = "Empieza a crear";
             this.btnEditor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditor.UseVisualStyleBackColor = true;
             this.btnEditor.Click += new System.EventHandler(this.btnEditor_Click);
@@ -227,7 +317,7 @@
             this.btnDashboard.Location = new System.Drawing.Point(0, 128);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(250, 45);
+            this.btnDashboard.Size = new System.Drawing.Size(233, 45);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -240,7 +330,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 128);
+            this.panelLogo.Size = new System.Drawing.Size(233, 128);
             this.panelLogo.TabIndex = 0;
             // 
             // pbSubMenuLogo
@@ -249,7 +339,7 @@
             this.pbSubMenuLogo.Image = global::Presentation.Properties.Resources.submenu_;
             this.pbSubMenuLogo.Location = new System.Drawing.Point(0, 0);
             this.pbSubMenuLogo.Name = "pbSubMenuLogo";
-            this.pbSubMenuLogo.Size = new System.Drawing.Size(250, 128);
+            this.pbSubMenuLogo.Size = new System.Drawing.Size(233, 128);
             this.pbSubMenuLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSubMenuLogo.TabIndex = 0;
             this.pbSubMenuLogo.TabStop = false;
@@ -291,6 +381,7 @@
             this.Text = "Ventana principal";
             this.panelSideMenu.ResumeLayout(false);
             this.PanelSubMenu3.ResumeLayout(false);
+            this.panelReports.ResumeLayout(false);
             this.PanelSubMenu2.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).EndInit();
@@ -306,10 +397,10 @@
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel PanelSubMenu3;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnReports;
+        private System.Windows.Forms.Button btnUserManagment;
+        private System.Windows.Forms.Button btnPrompts;
+        private System.Windows.Forms.Button btnManagment;
         private System.Windows.Forms.Panel PanelSubMenu2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
@@ -318,6 +409,11 @@
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox pbSubMenuLogo;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panelReports;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnRoleManagment;
     }
 }
 

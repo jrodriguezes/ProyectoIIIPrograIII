@@ -23,6 +23,7 @@ namespace Presentation
         {
             PanelSubMenu2.Visible = false;
             PanelSubMenu3.Visible = false;
+            panelReports.Visible = false;
         }
 
         private void hideSubMenu()
@@ -31,10 +32,8 @@ namespace Presentation
             {
                 PanelSubMenu2.Visible = false;
             }
-            if (PanelSubMenu3.Visible == true)
-            {
-                PanelSubMenu3.Visible = false;
-            }
+  
+                
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -157,12 +156,11 @@ namespace Presentation
 
         private void btnEditor_Click(object sender, EventArgs e)
         {
-            showSubMenu(PanelSubMenu2);
+            openChildForm(new Editor());
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -183,6 +181,21 @@ namespace Presentation
         private void pbSubMenuLogo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnManagment_Click(object sender, EventArgs e)
+        {
+            showSubMenu(PanelSubMenu3);
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelReports);
+        }
+
+        private void btnUserManagment_Click(object sender, EventArgs e)
+        {
+            openChildForm(new UserManagment());
         }
     }
 }

@@ -22,7 +22,6 @@ namespace Presentation
         int id = 0;
         string email = "";
 
-
         private void register_Click(object sender, EventArgs e)
         {
             Register registerForm = new Register();
@@ -47,7 +46,7 @@ namespace Presentation
 
         private void txtEmail_Enter(object sender, EventArgs e)
         {
-            if (txtCed.Text == "CORREO ELECTRONICO")
+            if (txtCed.Text == "CÉDULA")
             {
                 txtCed.Text = "";
                 txtCed.ForeColor = Color.LightGray;
@@ -58,7 +57,7 @@ namespace Presentation
         {
             if (txtCed.Text == "")
             {
-                txtCed.Text = "CORREO ELECTRONICO";
+                txtCed.Text = "CÉDULA";
                 txtCed.ForeColor = Color.DimGray;
             }
         }
