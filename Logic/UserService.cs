@@ -83,5 +83,20 @@ namespace Logic
         {
             crud.updateRole(model);
         }
+
+        public void updateUserInformation(UserModel model)
+        {
+            crud.updateUserInformation(model);
+        }
+
+        public int getClientTypeId(string clientType)
+        {
+            return crud.getClientTypeId(clientType);
+        }
+
+        public int getRoleId(string roleName)
+        {
+            return crud.getRoleId(roleName);
+        }
     }
 }

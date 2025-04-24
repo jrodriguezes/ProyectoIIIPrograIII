@@ -91,7 +91,7 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT id, name from users", actualConnection);
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT id from users", actualConnection);
             NpgsqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
@@ -99,7 +99,7 @@ namespace Data
                 UserModel user = new UserModel
                 {
                     id = Convert.ToInt32(dr["id"]),
-                    name = Convert.ToString(dr["name"]),
+
                 };
 
                 UserList.Add(user);
@@ -116,7 +116,7 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            string query = "SELECT email, genre, birthday, age, role, CLIENT_TYPE_ID, status FROM Users WHERE id = " + userId;
+            string query = "SELECT name, email, genre, birthday, age, role, CLIENT_TYPE_ID, status FROM Users WHERE id = " + userId;
 
             NpgsqlCommand cmd = new NpgsqlCommand(query, actualConnection);
             NpgsqlDataReader dr = cmd.ExecuteReader();
@@ -125,6 +125,7 @@ namespace Data
             {
                 UserModel user = new UserModel
                 {
+                    name = Convert.ToString(dr["name"]),
                     email = Convert.ToString(dr["email"]),
                     genre = Convert.ToString(dr["genre"]),
                     birthday = Convert.ToDateTime(dr["birthday"]),
@@ -300,6 +301,71 @@ namespace Data
 
             // Ejecutar la consulta
             cmd.ExecuteNonQuery();
+        }
+
+        public void updateUserInformation(UserModel user)
+        {
+            // Crear una conexión a la base de datos
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            // Consulta UPDATE para modificar los datos del usuario
+            string updateUserQuery = "UPDATE USERS SET " +
+                                     "name = '" + user.name + "', " +
+                                     "email = '" + user.email + "', " +
+                                     "genre = '" + user.genre + "', " +
+                                     "birthday = '" + user.birthday.ToString("yyyy-MM-dd") + "', " +
+                                     "age = " + user.age + ", " +
+                                     "role = '" + user.role + "', " +
+                                     "CLIENT_TYPE_ID = " + user.clientType + ", " +
+                                     "status = " + user.status + " " +
+                                     "WHERE id = " + user.id + ";";
+
+            // Preparar el comando con la consulta
+            NpgsqlCommand cmd = new NpgsqlCommand(updateUserQuery, actualConnection);
+
+            // Ejecutar la consulta
+            cmd.ExecuteNonQuery();
+        }
+
+        public int getRoleId(string roleName)
+        {
+            int roleId = -1;
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            // Consulta SQL para obtener el ID del role basado en el nombre
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT id FROM Role WHERE Role = '" + roleName + "'", actualConnection);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                if (dr.Read())
+                {
+                    roleId = dr.GetInt32(0); // Obtener el ID del role
+                }
+            }
+            return roleId;
+        }
+
+        public int getClientTypeId(string clientTypeName)
+        {
+            int clientTypeId = -1;
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            // Consulta SQL para obtener el ID del tipo de cliente basado en el nombre
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT id FROM CLIENT_TYPE WHERE type = '" + clientTypeName + "'", actualConnection);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                if (dr.Read())
+                {
+                    clientTypeId = dr.GetInt32(0); // Obtener el ID del tipo de cliente
+                }
+            }
+            return clientTypeId;
         }
 
 

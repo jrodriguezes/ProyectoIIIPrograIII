@@ -26,14 +26,21 @@ namespace Presentation
         int selectedRowIndexRoleInformation = -1;
         int selectedRowIndexClientTypeInformation = -1;
 
-
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 selectedRowIndexUsers = e.RowIndex;
-                int userId = Convert.ToInt32(dgvUsers.Rows[selectedRowIndexUsers].Cells["Id"].Value);
+                int userId = Convert.ToInt32(dgvUsers.Rows[selectedRowIndexUsers].Cells["userId"].Value);
                 loadUserInformation(userId);
+            }
+        }
+
+        private void dgvInformation_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedRowIndexUserInformation = e.RowIndex;
             }
         }
 
@@ -67,9 +74,9 @@ namespace Presentation
             foreach (RoleModel role in roleList)
             {
                 int rowIndex = dgvRole.Rows.Add();
-                dgvRole.Rows[rowIndex].Cells["serialIdStatus"].Value = role.id;
-                dgvRole.Rows[rowIndex].Cells["clientTypeRole"].Value = role.role;
-                dgvRole.Rows[rowIndex].Cells["roleClientType"].Value = role.status;
+                dgvRole.Rows[rowIndex].Cells["serialIdRole"].Value = role.id;
+                dgvRole.Rows[rowIndex].Cells["Role"].Value = role.role;
+                dgvRole.Rows[rowIndex].Cells["statusRole"].Value = role.status;
             }
         }
 
@@ -113,6 +120,7 @@ namespace Presentation
                 int rowIndex = dgvInformation.Rows.Add(); // Agregar una nueva fila
 
                 // Asignar valores a cada columna en la fila correspondiente
+                dgvInformation.Rows[rowIndex].Cells["userName"].Value = person.name;
                 dgvInformation.Rows[rowIndex].Cells["userEmail"].Value = person.email;
                 dgvInformation.Rows[rowIndex].Cells["userGenre"].Value = person.genre;
                 dgvInformation.Rows[rowIndex].Cells["userBirthdayDate"].Value = person.birthday.ToString("yyyy-MM-dd"); // Formato de fecha
@@ -153,23 +161,58 @@ namespace Presentation
             foreach (UserModel person in usersList)
             {
                 int rowIndex = dgvUsers.Rows.Add();
-                dgvUsers.Rows[rowIndex].Cells["Id"].Value = person.id;
-                dgvUsers.Rows[rowIndex].Cells["userName"].Value = person.name;
-            }
-        }
-
-        private void dgvInformation_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                selectedRowIndexUserInformation = e.RowIndex;
+                dgvUsers.Rows[rowIndex].Cells["userId"].Value = person.id;
             }
         }
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+            if (selectedRowIndexUserInformation >= 0)
+            {
+                // Obtener los valores de las celdas de dgvInformation
+                string userName = dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userName"].Value.ToString();
+                string userEmail = dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userEmail"].Value.ToString();
+                string userGenre = dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userGenre"].Value.ToString();
+                DateTime userBirthday = Convert.ToDateTime(dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userBirthdayDate"].Value);
+                int userAge = Convert.ToInt32(dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userAge"].Value);
 
+                // Obtener los valores del ComboBox para Role y ClientType
+                string userRoleString = dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userRole"].Value.ToString();
+                string userClientTypeString = dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userClientType"].Value.ToString();
+
+                // Obtener los IDs correspondientes al nombre del role y clientType desde la base de datos
+                int userRoleId = userService.getRoleId(userRoleString);  // Llamar al servicio para obtener el ID del role
+                int userClientTypeId = userService.getClientTypeId(userClientTypeString);  // Llamar al servicio para obtener el ID del tipo de cliente
+
+                // Obtener el valor de status
+                bool userStatus = (bool)dgvInformation.Rows[selectedRowIndexUserInformation].Cells["userStatus"].Value;
+
+                // Crear el modelo con los datos obtenidos
+                UserModel updatedUser = new UserModel
+                {
+                    id = Convert.ToInt32(dgvUsers.Rows[selectedRowIndexUserInformation].Cells["userId"].Value), // Asegúrate de tener una columna para "Id"
+                    name = userName,
+                    email = userEmail,
+                    genre = userGenre,
+                    birthday = userBirthday,
+                    age = userAge,
+                    role = userRoleId, // Asignar el ID del role
+                    clientType = userClientTypeId, // Asignar el ID del tipo de cliente
+                    status = userStatus ? 1 : 0 // Convertir el booleano a int
+                };
+
+                // Llamar al servicio para actualizar la base de datos
+                userService.updateUserInformation(updatedUser);
+                loadUserInformation(updatedUser.id);
+                MessageBox.Show("Haz modificado satisfactoriamente los datos del usuario.");
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una fila para modificar.");
+            }
         }
+
+
 
         private void btnAddRole_Click(object sender, EventArgs e)
         {
@@ -181,20 +224,41 @@ namespace Presentation
         {
             if (selectedRowIndexRoleInformation >= 0)
             {
+                // Verificamos si la celda "statusRole" contiene un valor válido y es un bool
+                var statusRoleCellValue = dgvRole.Rows[selectedRowIndexRoleInformation].Cells["statusRole"].Value;
+
+                // Definimos un valor por defecto para el estado
+                bool statusRoleValue = false;
+
+                if (statusRoleCellValue != null && statusRoleCellValue is bool)
+                {
+                    // Si el valor es válido y es un bool, lo asignamos
+                    statusRoleValue = (bool)statusRoleCellValue;
+                }
+                else
+                {
+                    // Si no es un bool o es nulo, asignamos un valor por defecto (false o true según sea necesario)
+                    statusRoleValue = false; // o `true` si lo deseas
+                }
+
+                // Crear el modelo con los valores correctos
                 RoleModel model = new RoleModel
                 {
-                    id = Convert.ToInt32(dgvRole.Rows[selectedRowIndexRoleInformation].Cells["serialIdStatus"].Value),
-                    role = Convert.ToString(dgvRole.Rows[selectedRowIndexRoleInformation].Cells["clientTypeRole"].Value),
-                    status = (bool)dgvRole.Rows[selectedRowIndexRoleInformation].Cells["roleClientType"].Value ? 1 : 0,
+                    id = Convert.ToInt32(dgvRole.Rows[selectedRowIndexRoleInformation].Cells["serialIdRole"].Value),
+                    role = Convert.ToString(dgvRole.Rows[selectedRowIndexRoleInformation].Cells["Role"].Value),
+                    status = statusRoleValue ? 1 : 0, // Convertimos el valor booleano en 1 o 0
                 };
+
+                // Actualizar el rol en el servicio
                 userService.updateRole(model);
                 MessageBox.Show("Haz modificado satisfactoriamente un rol.");
             }
             else
             {
-                MessageBox.Show("El indice no debe de ser negativo. Haga click en una fila rol.");
+                MessageBox.Show("El índice no debe de ser negativo. Haga click en una fila rol.");
             }
         }
+
 
         private void btnModClientType_Click(object sender, EventArgs e)
         {
