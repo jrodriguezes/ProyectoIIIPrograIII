@@ -167,6 +167,61 @@ namespace Data
             return clientTypesList;
         }
 
+        public List<(PlaneModel, PlaneInformationModel)> getAllPlanes()
+        {
+            List<(PlaneModel, PlaneInformationModel)> planesList = new List<(PlaneModel, PlaneInformationModel)>();
+
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string query = "SELECT p.id AS plane_id, p.user_id, p.photo, p.created, " +
+                           "pi.id AS plane_info_id, pi.student_name, pi.points, pi.feedback " +
+                           "FROM PLANE p " +
+                           "INNER JOIN PLANE_INFORMATION pi ON p.plane_information_id = pi.id";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(query, actualConnection);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                PlaneModel plane = new PlaneModel
+                {
+                    id = Convert.ToInt32(dr["plane_id"]),
+                    userId = Convert.ToInt32(dr["user_id"]),
+                    photo = (byte[])dr["photo"],
+                    created = Convert.ToDateTime(dr["created"]),
+                    planeInformationId = Convert.ToInt32(dr["plane_info_id"])
+                };
+
+                PlaneInformationModel planeInfo = new PlaneInformationModel
+                {
+                    id = Convert.ToInt32(dr["plane_info_id"]),
+                    studentName = Convert.ToString(dr["student_name"]),
+                    points = Convert.ToInt32(dr["points"]),
+                    feedback = Convert.ToString(dr["feedback"])
+                };
+
+                planesList.Add((plane, planeInfo));
+            }
+
+            return planesList;
+        }
+
+        public void updatePlaneInformation(PlaneInformationModel planeInfo)
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string updateQuery = "UPDATE PLANE_INFORMATION " +
+                                 "SET student_name = '" + planeInfo.studentName + "', " +
+                                 "points = " + planeInfo.points + ", " +
+                                 "feedback = '" + planeInfo.feedback + "' " +
+                                 "WHERE id = " + planeInfo.id + ";";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(updateQuery, actualConnection);
+            cmd.ExecuteNonQuery();
+        }
+
         public List<RoleModel> getAllRoles()
         {
             List<RoleModel> rolesList = new List<RoleModel>();
@@ -240,6 +295,33 @@ namespace Data
                                      "VALUES ('" + role.role + "', " + role.status + ");";
 
             NpgsqlCommand cmd = new NpgsqlCommand(insertRoleQuery, actualConnection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public int insertPlaneInformation(PlaneInformationModel planeInfo)
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string insertPlaneInformationQuery = "INSERT INTO PLANE_INFORMATION (student_name, points, feedback) " +
+                                                  "VALUES ('" + planeInfo.studentName + "', " + planeInfo.points + ", '" + planeInfo.feedback + "') " +
+                                                  "RETURNING id;";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(insertPlaneInformationQuery, actualConnection);
+            int generatedId = Convert.ToInt32(cmd.ExecuteScalar()); 
+            return generatedId;
+        }
+
+        public void insertPlane(PlaneModel plane)
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string hexPhoto = BitConverter.ToString(plane.photo).Replace("-", ""); // Solo quita los guiones
+            string insertPlaneQuery = "INSERT INTO PLANE (user_id, photo, PLANE_INFORMATION_ID) " +
+                                      "VALUES (" + plane.userId + ", decode('" + hexPhoto + "', 'hex'), " + plane.planeInformationId + ");";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(insertPlaneQuery, actualConnection);
             cmd.ExecuteNonQuery();
         }
 

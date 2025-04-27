@@ -44,17 +44,22 @@
             this.btnEditor = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pbSubMenuLogo = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbSubMenuLogo = new System.Windows.Forms.PictureBox();
+            this.PlaneManager = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.PanelSubMenu3.SuspendLayout();
             this.panelReports.SuspendLayout();
             this.PanelSubMenu2.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -77,9 +82,8 @@
             // 
             this.PanelSubMenu3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.PanelSubMenu3.Controls.Add(this.panelReports);
-            this.PanelSubMenu3.Controls.Add(this.btnReports);
-            this.PanelSubMenu3.Controls.Add(this.btnUserManagment);
-            this.PanelSubMenu3.Controls.Add(this.btnPrompts);
+            this.PanelSubMenu3.Controls.Add(this.panel2);
+            this.PanelSubMenu3.Controls.Add(this.panel1);
             this.PanelSubMenu3.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenu3.Location = new System.Drawing.Point(0, 302);
             this.PanelSubMenu3.Name = "PanelSubMenu3";
@@ -93,9 +97,9 @@
             this.panelReports.Controls.Add(this.button2);
             this.panelReports.Controls.Add(this.button3);
             this.panelReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReports.Location = new System.Drawing.Point(0, 120);
+            this.panelReports.Location = new System.Drawing.Point(0, 162);
             this.panelReports.Name = "panelReports";
-            this.panelReports.Size = new System.Drawing.Size(233, 124);
+            this.panelReports.Size = new System.Drawing.Size(233, 122);
             this.panelReports.TabIndex = 6;
             // 
             // button1
@@ -153,11 +157,11 @@
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.ForeColor = System.Drawing.Color.LightGray;
-            this.btnReports.Location = new System.Drawing.Point(0, 80);
+            this.btnReports.Location = new System.Drawing.Point(0, 0);
             this.btnReports.Name = "btnReports";
             this.btnReports.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnReports.Size = new System.Drawing.Size(233, 40);
-            this.btnReports.TabIndex = 2;
+            this.btnReports.TabIndex = 160;
             this.btnReports.Text = "Reportes";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.UseVisualStyleBackColor = false;
@@ -170,7 +174,7 @@
             this.btnUserManagment.FlatAppearance.BorderSize = 0;
             this.btnUserManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserManagment.ForeColor = System.Drawing.Color.LightGray;
-            this.btnUserManagment.Location = new System.Drawing.Point(0, 40);
+            this.btnUserManagment.Location = new System.Drawing.Point(0, 80);
             this.btnUserManagment.Name = "btnUserManagment";
             this.btnUserManagment.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnUserManagment.Size = new System.Drawing.Size(233, 40);
@@ -280,18 +284,6 @@
             this.panelLogo.Size = new System.Drawing.Size(233, 128);
             this.panelLogo.TabIndex = 0;
             // 
-            // pbSubMenuLogo
-            // 
-            this.pbSubMenuLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbSubMenuLogo.Image = global::Presentation.Properties.Resources.submenu_;
-            this.pbSubMenuLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbSubMenuLogo.Name = "pbSubMenuLogo";
-            this.pbSubMenuLogo.Size = new System.Drawing.Size(233, 128);
-            this.pbSubMenuLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbSubMenuLogo.TabIndex = 0;
-            this.pbSubMenuLogo.TabStop = false;
-            this.pbSubMenuLogo.Click += new System.EventHandler(this.pbSubMenuLogo_Click);
-            // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
@@ -313,6 +305,55 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // pbSubMenuLogo
+            // 
+            this.pbSubMenuLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbSubMenuLogo.Image = global::Presentation.Properties.Resources.submenu_;
+            this.pbSubMenuLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbSubMenuLogo.Name = "pbSubMenuLogo";
+            this.pbSubMenuLogo.Size = new System.Drawing.Size(233, 128);
+            this.pbSubMenuLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSubMenuLogo.TabIndex = 0;
+            this.pbSubMenuLogo.TabStop = false;
+            this.pbSubMenuLogo.Click += new System.EventHandler(this.pbSubMenuLogo_Click);
+            // 
+            // PlaneManager
+            // 
+            this.PlaneManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.PlaneManager.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlaneManager.FlatAppearance.BorderSize = 0;
+            this.PlaneManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PlaneManager.ForeColor = System.Drawing.Color.LightGray;
+            this.PlaneManager.Location = new System.Drawing.Point(0, 40);
+            this.PlaneManager.Name = "PlaneManager";
+            this.PlaneManager.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.PlaneManager.Size = new System.Drawing.Size(233, 40);
+            this.PlaneManager.TabIndex = 3;
+            this.PlaneManager.Text = "Gestión de planos";
+            this.PlaneManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PlaneManager.UseVisualStyleBackColor = false;
+            this.PlaneManager.Click += new System.EventHandler(this.PlaneManager_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnUserManagment);
+            this.panel1.Controls.Add(this.PlaneManager);
+            this.panel1.Controls.Add(this.btnPrompts);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(233, 122);
+            this.panel1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnReports);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 122);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(233, 40);
+            this.panel2.TabIndex = 161;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -331,9 +372,11 @@
             this.panelReports.ResumeLayout(false);
             this.PanelSubMenu2.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSubMenuLogo)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -358,6 +401,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelReports;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button PlaneManager;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

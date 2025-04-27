@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    internal class PlaneInformationModel
+    public class PlaneInformationModel
     {
+        public int id { get; set; }
+        public string studentName { get; set; }
+        public int points { get; set; }
+        public string feedback { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Presentation
 {
-    partial class PromptManager
+    partial class PlaneManager
     {
         /// <summary>
         /// Required designer variable.
@@ -33,24 +33,29 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnMod = new System.Windows.Forms.Button();
-            this.btnAddPrompt = new System.Windows.Forms.Button();
             this.dgvPrompt = new System.Windows.Forms.DataGridView();
+            this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.serialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prompt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.points = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feedback = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.planeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.professorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrompt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.pbPhoto);
             this.panel5.Controls.Add(this.btnMod);
-            this.panel5.Controls.Add(this.btnAddPrompt);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 523);
+            this.panel5.Location = new System.Drawing.Point(0, 452);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(684, 38);
-            this.panel5.TabIndex = 21;
+            this.panel5.Size = new System.Drawing.Size(684, 109);
+            this.panel5.TabIndex = 22;
             // 
             // btnMod
             // 
@@ -58,27 +63,13 @@
             this.btnMod.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMod.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMod.Location = new System.Drawing.Point(166, 0);
+            this.btnMod.Location = new System.Drawing.Point(0, 0);
             this.btnMod.Name = "btnMod";
-            this.btnMod.Size = new System.Drawing.Size(166, 38);
+            this.btnMod.Size = new System.Drawing.Size(166, 109);
             this.btnMod.TabIndex = 4;
             this.btnMod.Text = "MODIFICAR";
             this.btnMod.UseVisualStyleBackColor = false;
             this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
-            // 
-            // btnAddPrompt
-            // 
-            this.btnAddPrompt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.btnAddPrompt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAddPrompt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPrompt.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAddPrompt.Location = new System.Drawing.Point(0, 0);
-            this.btnAddPrompt.Name = "btnAddPrompt";
-            this.btnAddPrompt.Size = new System.Drawing.Size(166, 38);
-            this.btnAddPrompt.TabIndex = 3;
-            this.btnAddPrompt.Text = "AGREGAR";
-            this.btnAddPrompt.UseVisualStyleBackColor = false;
-            this.btnAddPrompt.Click += new System.EventHandler(this.btnAddPrompt_Click);
             // 
             // dgvPrompt
             // 
@@ -95,8 +86,12 @@
             this.dgvPrompt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrompt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.serialId,
-            this.prompt,
-            this.status});
+            this.studentName,
+            this.points,
+            this.feedback,
+            this.planeId,
+            this.professorId,
+            this.createDate});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,31 +110,63 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvPrompt.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPrompt.Size = new System.Drawing.Size(684, 523);
-            this.dgvPrompt.TabIndex = 22;
+            this.dgvPrompt.Size = new System.Drawing.Size(684, 452);
+            this.dgvPrompt.TabIndex = 23;
             this.dgvPrompt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrompt_CellClick);
+            // 
+            // pbPhoto
+            // 
+            this.pbPhoto.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbPhoto.Location = new System.Drawing.Point(166, 0);
+            this.pbPhoto.Name = "pbPhoto";
+            this.pbPhoto.Size = new System.Drawing.Size(170, 109);
+            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPhoto.TabIndex = 5;
+            this.pbPhoto.TabStop = false;
             // 
             // serialId
             // 
             this.serialId.HeaderText = "Código serial";
             this.serialId.Name = "serialId";
-            this.serialId.Width = 193;
+            this.serialId.Width = 75;
             // 
-            // prompt
+            // studentName
             // 
-            this.prompt.HeaderText = "Mensaje";
-            this.prompt.Name = "prompt";
-            this.prompt.Width = 250;
+            this.studentName.HeaderText = "Estudiante";
+            this.studentName.Name = "studentName";
+            this.studentName.Width = 250;
             // 
-            // status
+            // points
             // 
-            this.status.HeaderText = "Estado";
-            this.status.Name = "status";
-            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.status.Width = 200;
+            this.points.HeaderText = "Puntos";
+            this.points.Name = "points";
+            this.points.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // PromptManager
+            // feedback
+            // 
+            this.feedback.HeaderText = "Retroalimentación";
+            this.feedback.Name = "feedback";
+            this.feedback.Width = 400;
+            // 
+            // planeId
+            // 
+            this.planeId.HeaderText = "Código plano";
+            this.planeId.Name = "planeId";
+            this.planeId.Width = 75;
+            // 
+            // professorId
+            // 
+            this.professorId.HeaderText = "Cédula de profesor";
+            this.professorId.Name = "professorId";
+            this.professorId.Width = 150;
+            // 
+            // createDate
+            // 
+            this.createDate.HeaderText = "Fecha de creacion";
+            this.createDate.Name = "createDate";
+            this.createDate.Width = 150;
+            // 
+            // PlaneManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,12 +175,12 @@
             this.Controls.Add(this.dgvPrompt);
             this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PromptManager";
+            this.Name = "PlaneManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PromptManager";
-            this.Load += new System.EventHandler(this.PromptManager_Load);
+            this.Text = "PlaneManager";
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrompt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,10 +189,14 @@
 
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnMod;
-        private System.Windows.Forms.Button btnAddPrompt;
         private System.Windows.Forms.DataGridView dgvPrompt;
+        private System.Windows.Forms.PictureBox pbPhoto;
         private System.Windows.Forms.DataGridViewTextBoxColumn serialId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prompt;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn points;
+        private System.Windows.Forms.DataGridViewTextBoxColumn feedback;
+        private System.Windows.Forms.DataGridViewTextBoxColumn planeId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn professorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createDate;
     }
 }

@@ -214,8 +214,13 @@ namespace Presentation
 
         private void btnAddPLane_Click(object sender, EventArgs e)
         {
-            PlaneInformation form = new PlaneInformation();
+            PlaneInformation form = new PlaneInformation(userId);
             form.Show();
+        }
+
+        private void PlaneManager_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PlaneManager());
         }
     }
 }

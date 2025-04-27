@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Data;
 using Objects;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Logic
 {
@@ -22,6 +23,17 @@ namespace Logic
         {
             return crud.getUserId(Email);
         }
+
+        public int insertPlaneInformation(PlaneInformationModel planeInfo)
+        {
+            return crud.insertPlaneInformation(planeInfo);
+        }
+
+        public void insertPlane(PlaneModel plane)
+        {
+            crud.insertPlane(plane);
+        }
+
         public string getPasswordById(int id)
         {
             return crud.getPasswordbyId(id);
@@ -47,6 +59,11 @@ namespace Logic
             return crud.getAllClientTypes();
         }
 
+        public List<(PlaneModel, PlaneInformationModel)> getAllPlanes()
+        {
+            return crud.getAllPlanes();
+        }
+
         public List<RoleModel> getAllRoles()
         {
             return crud.getAllRoles();
@@ -56,14 +73,22 @@ namespace Logic
         {
             return crud.getAllPrompts();
         }
+
         public void insertClientType(ClientTypeModel model)
         {
             crud.insertClientType(model);
         }
+
         public void insertRole(RoleModel model)
         {
             crud.insertRole(model);
         }
+
+        public void updatePlaneInformation(PlaneInformationModel planeInfo)
+        {
+            crud.updatePlaneInformation(planeInfo);
+        }
+
         public void insertBotPrompt(BotPromptModel model)
         {
             crud.insertBotPrompt(model);

@@ -212,8 +212,6 @@ namespace Presentation
             }
         }
 
-
-
         private void btnAddRole_Click(object sender, EventArgs e)
         {
             AddRole form = new AddRole(this);

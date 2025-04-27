@@ -130,6 +130,12 @@
     <Compile Include="PlaneInformation.Designer.cs">
       <DependentUpon>PlaneInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlaneManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaneManager.Designer.cs">
+      <DependentUpon>PlaneManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PlaneInformation.resx">
       <DependentUpon>PlaneInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaneManager.resx">
+      <DependentUpon>PlaneManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

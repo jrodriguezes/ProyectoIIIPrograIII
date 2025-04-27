@@ -31,15 +31,15 @@
             this.txtStudentName = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtPoints = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rchFeedback = new System.Windows.Forms.RichTextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pbFaceID = new System.Windows.Forms.PictureBox();
+            this.pbModel = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pb_Exit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,8 @@
             this.txtStudentName.Size = new System.Drawing.Size(290, 20);
             this.txtStudentName.TabIndex = 77;
             this.txtStudentName.Text = "NOMBRE DE ESTUDIANTE";
+            this.txtStudentName.Enter += new System.EventHandler(this.txtStudentName_Enter);
+            this.txtStudentName.Leave += new System.EventHandler(this.txtStudentName_Leave);
             // 
             // btnRegister
             // 
@@ -69,6 +71,7 @@
             this.btnRegister.TabIndex = 65;
             this.btnRegister.Text = "REGISTRAR";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // txtPoints
             // 
@@ -81,15 +84,21 @@
             this.txtPoints.Size = new System.Drawing.Size(290, 20);
             this.txtPoints.TabIndex = 66;
             this.txtPoints.Text = "PUNTOS OBTENIDOS";
+            this.txtPoints.Enter += new System.EventHandler(this.txtPoints_Enter);
+            this.txtPoints.Leave += new System.EventHandler(this.txtPoints_Leave);
             // 
-            // richTextBox1
+            // rchFeedback
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.richTextBox1.Location = new System.Drawing.Point(46, 124);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(290, 121);
-            this.richTextBox1.TabIndex = 80;
-            this.richTextBox1.Text = "";
+            this.rchFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.rchFeedback.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.rchFeedback.ForeColor = System.Drawing.Color.DimGray;
+            this.rchFeedback.Location = new System.Drawing.Point(46, 124);
+            this.rchFeedback.Name = "rchFeedback";
+            this.rchFeedback.Size = new System.Drawing.Size(290, 121);
+            this.rchFeedback.TabIndex = 80;
+            this.rchFeedback.Text = "FEEDBACK";
+            this.rchFeedback.Enter += new System.EventHandler(this.rchFeedback_Enter);
+            this.rchFeedback.Leave += new System.EventHandler(this.rchFeedback_Leave);
             // 
             // pictureBox5
             // 
@@ -109,16 +118,16 @@
             this.pictureBox10.TabIndex = 76;
             this.pictureBox10.TabStop = false;
             // 
-            // pbFaceID
+            // pbModel
             // 
-            this.pbFaceID.Image = global::Presentation.Properties.Resources.subirImagen;
-            this.pbFaceID.Location = new System.Drawing.Point(46, 264);
-            this.pbFaceID.Name = "pbFaceID";
-            this.pbFaceID.Size = new System.Drawing.Size(290, 107);
-            this.pbFaceID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbFaceID.TabIndex = 72;
-            this.pbFaceID.TabStop = false;
-            this.pbFaceID.Click += new System.EventHandler(this.pbFaceID_Click);
+            this.pbModel.Image = global::Presentation.Properties.Resources.subirImagen;
+            this.pbModel.Location = new System.Drawing.Point(46, 264);
+            this.pbModel.Name = "pbModel";
+            this.pbModel.Size = new System.Drawing.Size(290, 107);
+            this.pbModel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbModel.TabIndex = 72;
+            this.pbModel.TabStop = false;
+            this.pbModel.Click += new System.EventHandler(this.pbModel_Click);
             // 
             // pictureBox8
             // 
@@ -149,11 +158,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(386, 475);
             this.Controls.Add(this.pb_Exit);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rchFeedback);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.txtStudentName);
             this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pbFaceID);
+            this.Controls.Add(this.pbModel);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.txtPoints);
@@ -163,7 +172,7 @@
             this.Text = "PlaneInformation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFaceID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).EndInit();
             this.ResumeLayout(false);
@@ -176,11 +185,11 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.TextBox txtStudentName;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pbFaceID;
+        private System.Windows.Forms.PictureBox pbModel;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.TextBox txtPoints;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rchFeedback;
         private System.Windows.Forms.PictureBox pb_Exit;
     }
 }
