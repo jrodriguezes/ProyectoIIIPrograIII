@@ -40,9 +40,7 @@
             this.btnPrompts = new System.Windows.Forms.Button();
             this.btnManagment = new System.Windows.Forms.Button();
             this.PanelSubMenu2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnAddPLane = new System.Windows.Forms.Button();
             this.btnEditor = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -83,7 +81,7 @@
             this.PanelSubMenu3.Controls.Add(this.btnUserManagment);
             this.PanelSubMenu3.Controls.Add(this.btnPrompts);
             this.PanelSubMenu3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelSubMenu3.Location = new System.Drawing.Point(0, 385);
+            this.PanelSubMenu3.Location = new System.Drawing.Point(0, 302);
             this.PanelSubMenu3.Name = "PanelSubMenu3";
             this.PanelSubMenu3.Size = new System.Drawing.Size(233, 288);
             this.PanelSubMenu3.TabIndex = 6;
@@ -205,7 +203,7 @@
             this.btnManagment.FlatAppearance.BorderSize = 0;
             this.btnManagment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagment.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnManagment.Location = new System.Drawing.Point(0, 340);
+            this.btnManagment.Location = new System.Drawing.Point(0, 257);
             this.btnManagment.Name = "btnManagment";
             this.btnManagment.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnManagment.Size = new System.Drawing.Size(233, 45);
@@ -218,62 +216,28 @@
             // PanelSubMenu2
             // 
             this.PanelSubMenu2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.PanelSubMenu2.Controls.Add(this.button6);
-            this.PanelSubMenu2.Controls.Add(this.button7);
-            this.PanelSubMenu2.Controls.Add(this.button8);
+            this.PanelSubMenu2.Controls.Add(this.btnAddPLane);
             this.PanelSubMenu2.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSubMenu2.Location = new System.Drawing.Point(0, 218);
             this.PanelSubMenu2.Name = "PanelSubMenu2";
-            this.PanelSubMenu2.Size = new System.Drawing.Size(233, 122);
+            this.PanelSubMenu2.Size = new System.Drawing.Size(233, 39);
             this.PanelSubMenu2.TabIndex = 4;
             // 
-            // button6
+            // btnAddPLane
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.LightGray;
-            this.button6.Location = new System.Drawing.Point(0, 80);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(233, 40);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "button6";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button7
-            // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.LightGray;
-            this.button7.Location = new System.Drawing.Point(0, 40);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(233, 40);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "button7";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.ForeColor = System.Drawing.Color.LightGray;
-            this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(233, 40);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "button8";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnAddPLane.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAddPLane.FlatAppearance.BorderSize = 0;
+            this.btnAddPLane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPLane.ForeColor = System.Drawing.Color.LightGray;
+            this.btnAddPLane.Location = new System.Drawing.Point(0, 0);
+            this.btnAddPLane.Name = "btnAddPLane";
+            this.btnAddPLane.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAddPLane.Size = new System.Drawing.Size(233, 39);
+            this.btnAddPLane.TabIndex = 0;
+            this.btnAddPLane.Text = "Agregar información plano";
+            this.btnAddPLane.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPLane.UseVisualStyleBackColor = true;
+            this.btnAddPLane.Click += new System.EventHandler(this.btnAddPLane_Click);
             // 
             // btnEditor
             // 
@@ -385,9 +349,7 @@
         private System.Windows.Forms.Button btnPrompts;
         private System.Windows.Forms.Button btnManagment;
         private System.Windows.Forms.Panel PanelSubMenu2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnAddPLane;
         private System.Windows.Forms.Button btnEditor;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox pbSubMenuLogo;

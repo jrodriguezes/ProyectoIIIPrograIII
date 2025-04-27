@@ -180,6 +180,7 @@ namespace Presentation
         private void btnEditor_Click(object sender, EventArgs e)
         {
             openChildForm(new Editor());
+            showSubMenu(PanelSubMenu2);
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -224,6 +225,12 @@ namespace Presentation
         private void btnPrompts_Click(object sender, EventArgs e)
         {
             openChildForm(new PromptManager());
+        }
+
+        private void btnAddPLane_Click(object sender, EventArgs e)
+        {
+            PlaneInformation form = new PlaneInformation();
+            form.Show();
         }
     }
 }
