@@ -8,17 +8,23 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic;
 
 namespace Presentation
 {
     public partial class Principal : Form
     {
+        int userId = -1;
+        UserService userService = new UserService();
         public Principal(int id)
         {
             InitializeComponent();
+            this.userId = id;
+            hideByRole();
             customizingDesign();
             InitializeTitleBarPersonalizated();
         }
+
         private void customizingDesign()
         {
             PanelSubMenu2.Visible = false;
@@ -26,15 +32,32 @@ namespace Presentation
             panelReports.Visible = false;
         }
 
+        private void hideByRole()
+        {
+            int role = userService.getRoleByUserId(userId);
+
+            if (role == 1)
+            {
+                btnDashboard.Visible = false;
+                btnManagment.Visible = false;
+                btnReports.Visible = false;
+            }
+            if (role == 2)
+            {
+                btnDashboard.Visible = true;
+                btnManagment.Visible = true;
+                btnReports.Visible = true;
+            }
+        }
+
         private void hideSubMenu()
         {
             if (PanelSubMenu2.Visible == true)
             {
                 PanelSubMenu2.Visible = false;
-            }
-  
-                
+            }        
         }
+
         private void showSubMenu(Panel subMenu)
         {
             if (subMenu.Visible == false)

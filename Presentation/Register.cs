@@ -6,12 +6,12 @@ using Logic;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Objects;
+using System.Linq;
 
 namespace Presentation
 {
     public partial class Register : Form
     {
-
         SecurityUtils securityUtils = new SecurityUtils();
         public Register()
         {
@@ -30,11 +30,7 @@ namespace Presentation
             txtPassword.ForeColor = Color.DimGray;
 
             cmbGenre.SelectedIndex = 0;
-        }
-
-        private void Register_Load(object sender, EventArgs e)
-        {
-
+            txtId.Text = "CÉDULA";
         }
 
         private void pb_Exit_Click(object sender, EventArgs e)
@@ -42,17 +38,17 @@ namespace Presentation
             this.Close();
         }
 
-
         private async void btnRegister_Click(object sender, EventArgs e)
         {
-            if (pbFaceID.Image == null)
-            {
-                MessageBox.Show("⚠️ No hay imagen capturada. Usá el botón de Face ID primero.");
-                return;
-            }
+            string imagePath = null;
 
-            string imagePath = Path.Combine(Path.GetTempPath(), $"face_{Guid.NewGuid()}.jpg");
-            pbFaceID.Image.Save(imagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+            bool capturedRealPhoto = !IsDefaultFaceImage(pbFaceID.Image);
+
+            if (capturedRealPhoto)
+            {
+                imagePath = Path.Combine(Path.GetTempPath(), $"face_{Guid.NewGuid()}.jpg");
+                pbFaceID.Image.Save(imagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
 
             UserModel newUser = new UserModel
             {
@@ -65,21 +61,29 @@ namespace Presentation
                 password = securityUtils.encryptMD5(txtPassword.Text),
                 clientType = 1,
                 role = 1,
+                faceId = null,
             };
 
             string endpoint = "https://faceapi-utn2025.cognitiveservices.azure.com/";
             string key = "2hOrQAs5oiB1o6XKDSl5pVkhlHvZ15TUciHoeg3bGxglNgSdeqyAJQQJ99BDACYeBjFXJ3w3AAAKACOGb7yu";
 
             var faceIdService = new FaceIdService(endpoint, key);
+            var userService = new UserService();
 
             try
             {
-                await faceIdService.RegisterUserAsync(newUser, imagePath);
+                if (capturedRealPhoto && !string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    bool tieneCara = await faceIdService.ValidateImageHasFace(imagePath);
 
-                UserService userService = new UserService();
+                    if (tieneCara)
+                    {
+                        await faceIdService.RegisterUserAsync(newUser, imagePath);
+                    }
+                }
+
                 userService.InsertUser(newUser);
-
-                MessageBox.Show("✅ Usuario registrado con Face ID exitosamente!");
+                MessageBox.Show("✅ Usuario registrado exitosamente!");
                 ClearText();
             }
             catch (APIErrorException ex)
@@ -92,6 +96,22 @@ namespace Presentation
             }
         }
 
+        private bool IsDefaultFaceImage(Image img)
+        {
+            using (var ms1 = new MemoryStream())
+            {
+                using (var ms2 = new MemoryStream())
+                {
+                    img.Save(ms1, System.Drawing.Imaging.ImageFormat.Png);
+                    Presentation.Properties.Resources.face_id.Save(ms2, System.Drawing.Imaging.ImageFormat.Png);
+
+                    byte[] imgBytes1 = ms1.ToArray();
+                    byte[] imgBytes2 = ms2.ToArray();
+
+                    return imgBytes1.SequenceEqual(imgBytes2); // compara byte a byte
+                }
+            }
+        }
 
         private int calculateAge(DateTime birthday)
         {
@@ -104,7 +124,7 @@ namespace Presentation
                 age--;
             }
             return age;
-         }
+        }
 
         private void pbFaceID_Click(object sender, EventArgs e)
         {
@@ -213,11 +233,6 @@ namespace Presentation
                 txtId.Text = "CÉDULA";
                 txtId.ForeColor = Color.DimGray;
             }
-        }
-
-        private void Register_FormClosing(object sender, FormClosingEventArgs e)
-        {
-    
         }
     }
 }

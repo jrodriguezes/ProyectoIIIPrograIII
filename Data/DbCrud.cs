@@ -16,15 +16,16 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
+            string faceIdValue = user.faceId.HasValue ? "'" + user.faceId.Value + "'" : "NULL";
+
             string insertUserQuery = "INSERT INTO Users (Id, Name, Email, Genre, Birthday, Age, Password, FaceId, Role, CLIENT_TYPE_ID, Status) " +
-                                     "VALUES (" + user.id + ", '" + user.name + "', '" + user.email + "', '" + user.genre + "', '" +
-                                     user.birthday.ToString("yyyy-MM-dd") + "', " + user.age + ", '" + user.password + "', '" + user.faceId + "', " +
-                                     user.role + ", " + user.clientType + ", " + 1 + ");";
+                "VALUES (" + user.id + ", '" + user.name + "', '" + user.email + "', '" + user.genre + "', '" +
+                user.birthday.ToString("yyyy-MM-dd") + "', " + user.age + ", '" + user.password + "', " + faceIdValue + ", " +
+                user.role + ", " + user.clientType + ", " + 1 + ");";
 
             NpgsqlCommand cmd = new NpgsqlCommand(insertUserQuery, actualConnection);
             cmd.ExecuteNonQuery();
-        }
-
+        } 
 
         // Queries 
 
@@ -165,7 +166,6 @@ namespace Data
 
             return clientTypesList;
         }
-
 
         public List<RoleModel> getAllRoles()
         {
@@ -368,8 +368,25 @@ namespace Data
             return clientTypeId;
         }
 
+        public int getRoleByUserId(int id)
+        {
+            int role = -1; 
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
 
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT Role FROM USERS WHERE Id =" + id, actualConnection);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
 
+            if (dr.HasRows)
+            {
+                if (dr.Read())
+                {
+                    role = dr.GetInt32(0); // Obtener el ID del rol
+                }
+            }
+            return role;
+
+        }
     }
 }
 

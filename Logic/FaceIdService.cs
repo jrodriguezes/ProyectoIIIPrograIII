@@ -75,9 +75,15 @@ namespace Logic
 
             // Entrenar al grupo para que reconozca la nueva cara
             await faceClient.PersonGroup.TrainAsync(personGroupId);
+        }
 
-            // Guardar el usuario con el faceId en la base de datos
-            userService.InsertUser(user);
+        public async Task<bool> ValidateImageHasFace(string imagePath)
+        {
+            using (Stream stream = File.OpenRead(imagePath))
+            {
+                var faces = await faceClient.Face.DetectWithStreamAsync(stream);
+                return faces.Any();
+            }
         }
 
         public async Task<Guid?> IdentifyUserByImage(string imagePath)

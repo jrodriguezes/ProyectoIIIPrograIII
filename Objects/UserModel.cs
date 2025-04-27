@@ -15,7 +15,8 @@ namespace Objects
         public DateTime birthday { get; set; }
         public int age { get; set; }
         public string password { get; set; }
-        public Guid faceId { get; set; }  // UUID de Face API
+        // Cambiar a nullable Guid para permitir valores NULL (?)
+        public Guid? faceId { get; set; }
         public int role {  get; set; }
         public int clientType { get; set; }
         public int status {  get; set; }

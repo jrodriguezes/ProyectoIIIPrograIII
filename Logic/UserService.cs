@@ -98,5 +98,11 @@ namespace Logic
         {
             return crud.getRoleId(roleName);
         }
+
+        public int getRoleByUserId(int userId)
+        {
+            return crud.getRoleByUserId(userId);
+        }
+
     }
 }

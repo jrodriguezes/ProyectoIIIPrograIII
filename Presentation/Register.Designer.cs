@@ -52,7 +52,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -331,7 +330,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.txtId);
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.pictureBox10);
             this.panel2.Controls.Add(this.pictureBox9);
             this.panel2.Controls.Add(this.txtPassword);
@@ -372,16 +370,6 @@
             this.txtId.Text = "CÉDULA";
             this.txtId.Enter += new System.EventHandler(this.txtId_Enter);
             this.txtId.Leave += new System.EventHandler(this.txtId_Leave);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(362, 456);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 62;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnTestFaceApi_Click);
             // 
             // pictureBox10
             // 
@@ -539,8 +527,6 @@
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
-            this.Load += new System.EventHandler(this.Register_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -606,7 +592,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pbFaceID;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.TextBox txtId;
     }
