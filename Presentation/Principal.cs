@@ -84,7 +84,6 @@ namespace Presentation
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
         }
 
         private void InitializeTitleBarPersonalizated()
@@ -179,22 +178,8 @@ namespace Presentation
 
         private void btnEditor_Click(object sender, EventArgs e)
         {
-            openChildForm(new Editor());
+            openChildForm(new Editor(userId));
             showSubMenu(PanelSubMenu2);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

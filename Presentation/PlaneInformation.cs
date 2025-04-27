@@ -21,5 +21,10 @@ namespace Presentation
         {
 
         }
+
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

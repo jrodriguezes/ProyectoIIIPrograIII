@@ -140,6 +140,7 @@
             this.pb_Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_Exit.TabIndex = 83;
             this.pb_Exit.TabStop = false;
+            this.pb_Exit.Click += new System.EventHandler(this.pb_Exit_Click);
             // 
             // PlaneInformation
             // 
