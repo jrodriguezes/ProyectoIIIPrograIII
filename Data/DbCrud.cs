@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Data
 
             NpgsqlCommand cmd = new NpgsqlCommand(insertUserQuery, actualConnection);
             cmd.ExecuteNonQuery();
-        } 
+        }
 
         // Queries 
 
@@ -148,12 +149,12 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            string query = "SELECT id, type, status FROM CLIENT_TYPE";  // Consulta para obtener todos los tipos de cliente
+            string query = "SELECT id, type, status FROM CLIENT_TYPE"; 
 
             NpgsqlCommand cmd = new NpgsqlCommand(query, actualConnection);
             NpgsqlDataReader dr = cmd.ExecuteReader();
 
-            while (dr.Read())  // Verificamos si hay más de un tipo de cliente
+            while (dr.Read())
             {
                 ClientTypeModel clientType = new ClientTypeModel
                 {
@@ -255,12 +256,12 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            string query = "SELECT id, PROMPT, status FROM BOT_PROMPT"; 
+            string query = "SELECT id, PROMPT, status FROM BOT_PROMPT";
 
             NpgsqlCommand cmd = new NpgsqlCommand(query, actualConnection);
             NpgsqlDataReader dr = cmd.ExecuteReader();
 
-            while (dr.Read()) 
+            while (dr.Read())
             {
                 BotPromptModel prompt = new BotPromptModel
                 {
@@ -308,7 +309,7 @@ namespace Data
                                                   "RETURNING id;";
 
             NpgsqlCommand cmd = new NpgsqlCommand(insertPlaneInformationQuery, actualConnection);
-            int generatedId = Convert.ToInt32(cmd.ExecuteScalar()); 
+            int generatedId = Convert.ToInt32(cmd.ExecuteScalar());
             return generatedId;
         }
 
@@ -339,59 +340,45 @@ namespace Data
 
         public void updateBotPrompt(BotPromptModel prompt)
         {
-            // Crear una conexión a la base de datos
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            // Consulta UPDATE para modificar el estado y el mensaje usando el objeto
             string updatePromptQuery = "UPDATE BOT_PROMPT SET PROMPT = '" + prompt.prompt + "', status = " + prompt.status + " WHERE ID = " + prompt.id + ";";
 
-            // Preparar el comando con la consulta
             NpgsqlCommand cmd = new NpgsqlCommand(updatePromptQuery, actualConnection);
 
-            // Ejecutar la consulta
             cmd.ExecuteNonQuery();
         }
 
         public void updateClientType(ClientTypeModel clientType)
         {
-            // Crear una conexión a la base de datos
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            // Consulta UPDATE para modificar el tipo y el estado utilizando el objeto
             string updateClientTypeQuery = "UPDATE CLIENT_TYPE SET type = '" + clientType.clientType + "', status = " + clientType.status + " WHERE id = " + clientType.id + ";";
 
-            // Preparar el comando con la consulta
             NpgsqlCommand cmd = new NpgsqlCommand(updateClientTypeQuery, actualConnection);
 
-            // Ejecutar la consulta
             cmd.ExecuteNonQuery();
         }
 
         public void updateRole(RoleModel role)
         {
-            // Crear una conexión a la base de datos
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            // Consulta UPDATE para modificar el rol y el estado utilizando el objeto
             string updateRoleQuery = "UPDATE Role SET Role = '" + role.role + "', status = " + role.status + " WHERE id = " + role.id + ";";
 
-            // Preparar el comando con la consulta
             NpgsqlCommand cmd = new NpgsqlCommand(updateRoleQuery, actualConnection);
 
-            // Ejecutar la consulta
             cmd.ExecuteNonQuery();
         }
 
         public void updateUserInformation(UserModel user)
         {
-            // Crear una conexión a la base de datos
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            // Consulta UPDATE para modificar los datos del usuario
             string updateUserQuery = "UPDATE USERS SET " +
                                      "name = '" + user.name + "', " +
                                      "email = '" + user.email + "', " +
@@ -403,10 +390,8 @@ namespace Data
                                      "status = " + user.status + " " +
                                      "WHERE id = " + user.id + ";";
 
-            // Preparar el comando con la consulta
             NpgsqlCommand cmd = new NpgsqlCommand(updateUserQuery, actualConnection);
 
-            // Ejecutar la consulta
             cmd.ExecuteNonQuery();
         }
 
@@ -416,7 +401,6 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            // Consulta SQL para obtener el ID del role basado en el nombre
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT id FROM Role WHERE Role = '" + roleName + "'", actualConnection);
             NpgsqlDataReader dr = cmd.ExecuteReader();
 
@@ -424,7 +408,7 @@ namespace Data
             {
                 if (dr.Read())
                 {
-                    roleId = dr.GetInt32(0); // Obtener el ID del role
+                    roleId = dr.GetInt32(0); 
                 }
             }
             return roleId;
@@ -436,7 +420,6 @@ namespace Data
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
-            // Consulta SQL para obtener el ID del tipo de cliente basado en el nombre
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT id FROM CLIENT_TYPE WHERE type = '" + clientTypeName + "'", actualConnection);
             NpgsqlDataReader dr = cmd.ExecuteReader();
 
@@ -444,7 +427,7 @@ namespace Data
             {
                 if (dr.Read())
                 {
-                    clientTypeId = dr.GetInt32(0); // Obtener el ID del tipo de cliente
+                    clientTypeId = dr.GetInt32(0); 
                 }
             }
             return clientTypeId;
@@ -452,7 +435,7 @@ namespace Data
 
         public int getRoleByUserId(int id)
         {
-            int role = -1; 
+            int role = -1;
             DbConnection connection = new DbConnection();
             NpgsqlConnection actualConnection = connection.dbConnection();
 
@@ -463,12 +446,84 @@ namespace Data
             {
                 if (dr.Read())
                 {
-                    role = dr.GetInt32(0); // Obtener el ID del rol
+                    role = dr.GetInt32(0); 
                 }
             }
             return role;
 
         }
+        public DataTable GetReporte1()
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string query = "SELECT " +
+                           "u.name AS \"Nombre del Usuario\", " +
+                           "u.email AS \"Correo\", " +
+                           "ct.type AS \"Tipo de Cliente\", " +
+                           "r.role AS \"Rol de Usuario\", " +
+                           "ap.accerted_prompts AS \"Prompts Aciertos\", " +
+                           "ap.innacerted_prompts AS \"Prompts Fallos\" " +
+                           "FROM USERS u " +
+                           "JOIN CLIENT_TYPE ct ON u.client_type_id = ct.id " +
+                           "JOIN ROLE r ON u.role = r.id " +
+                           "JOIN ACCERTED_PROMPTS ap ON u.id = ap.id " +
+                           "WHERE u.status = 1;";
+
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, actualConnection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetReporte2()
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string query = "SELECT " +
+                           "u.name AS \"Nombre del Usuario\", " +
+                           "r.role AS \"Rol\", " +
+                           "pi.student_name AS \"Nombre del Estudiante\", " +
+                           "pi.points AS \"Puntos\", " +
+                           "pi.feedback AS \"Retroalimentación\", " +
+                           "p.created AS \"Fecha de Creación\" " +
+                           "FROM USERS u " +
+                           "JOIN ROLE r ON u.role = r.id " +
+                           "JOIN PLANE p ON u.id = p.user_id " +
+                           "JOIN PLANE_INFORMATION pi ON p.plane_information_id = pi.id " +
+                           "ORDER BY p.created DESC;";
+
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, actualConnection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetReporte3()
+        {
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            string query = "SELECT " +
+                           "u.name AS \"Nombre del Usuario\", " +
+                           "ct.type AS \"Tipo de Cliente\", " +
+                           "COUNT(p.id) AS \"Cantidad de Planos\", " +
+                           "AVG(pi.points) AS \"Promedio de Puntos en Planos\" " +
+                           "FROM USERS u " +
+                           "JOIN CLIENT_TYPE ct ON u.client_type_id = ct.id " +
+                           "LEFT JOIN PLANE p ON u.id = p.user_id " +
+                           "LEFT JOIN PLANE_INFORMATION pi ON p.plane_information_id = pi.id " +
+                           "WHERE u.status = 1 " +
+                           "GROUP BY u.name, ct.type;";
+
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, actualConnection);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
     }
+
 }
+
 
