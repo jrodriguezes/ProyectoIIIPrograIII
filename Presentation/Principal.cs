@@ -199,7 +199,7 @@ namespace Presentation
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            openChildForm(new Reports());
+            openChildForm(new Reports(userId));
         }
 
         private void btnUserManagment_Click(object sender, EventArgs e)

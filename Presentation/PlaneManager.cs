@@ -74,11 +74,11 @@ namespace Presentation
                 loadPlanes();
 
 
-                MessageBox.Show("✅ Información del estudiante actualizada correctamente.");
+                MessageBox.Show("Información del estudiante actualizada correctamente.");
             }
             else
             {
-                MessageBox.Show("⚠️ Debes seleccionar una fila primero.");
+                MessageBox.Show("Debes seleccionar una fila primero.");
             }
         }
 

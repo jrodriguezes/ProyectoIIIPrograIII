@@ -522,6 +522,27 @@ namespace Data
             adapter.Fill(dt);
             return dt;
         }
+
+        public string getEmailById(int id)
+        {
+            string email = "";
+            DbConnection connection = new DbConnection();
+            NpgsqlConnection actualConnection = connection.dbConnection();
+
+            NpgsqlCommand cmd = new NpgsqlCommand("SELECT Email FROM USERS WHERE Id =" + id, actualConnection);
+
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                if (dr.Read())
+                {
+                    email = dr.GetString(0);
+                }
+            }
+            return email;
+
+        }
     }
 
 }

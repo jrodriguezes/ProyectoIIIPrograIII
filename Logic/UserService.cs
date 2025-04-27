@@ -129,5 +129,10 @@ namespace Logic
             return crud.getRoleByUserId(userId);
         }
 
+        public string getEmailById(int id)
+        {
+            return crud.getEmailById(id);
+        }
+
     }
 }
